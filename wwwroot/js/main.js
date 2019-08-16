@@ -15,7 +15,7 @@ class DataCapture {
    data = [];
 
    constructor() {
-      document.getElementById('start').onclick = this.activateCapture;
+      document.getElementById('start').onclick = this.activateCapture.bind(this);
       console.log("In constructor");
    }
 
@@ -32,7 +32,7 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      if (!this.on) {
+      if (this.on) {
          this.on = false;
 
          window.removeEventListener('deviceorientation', this.orientation);
