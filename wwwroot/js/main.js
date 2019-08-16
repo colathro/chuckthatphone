@@ -16,7 +16,7 @@ class DataCapture {
 
    constructor() {
       document.getElementById('start').onclick = this.activateCapture;
-      console.long("In constructor");
+      console.log("In constructor");
    }
 
    activateCapture() {
@@ -27,7 +27,7 @@ class DataCapture {
 
          window.addEventListener('devicemotion', this.motion);
       } else {
-         this.deactivateCapture();
+         deactivateCapture();
       }
    }
 
