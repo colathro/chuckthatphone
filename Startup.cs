@@ -26,14 +26,23 @@ namespace yeetmeto.space
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDbContext<DBContext>(options =>
+                options.UseSqlServer(Environment.GetEnvironmentVariable("SQLAZURECONNSTR_db")));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
+                context.Database.EnsureCreated();
+            }
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }
