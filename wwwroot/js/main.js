@@ -11,7 +11,7 @@ class DataInstance {
 
 
 class DataCapture {
-   capture = false;
+   on = false;
    data = [];
 
    constructor() {
@@ -20,8 +20,8 @@ class DataCapture {
    }
 
    activateCapture() {
-      if (!on) {
-         capture = on;
+      if (!this.on) {
+         this.on = true;
 
          window.addEventListener('deviceorientation', this.orientation);
 
@@ -32,8 +32,8 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      if (!on) {
-         capture = false;
+      if (!this.on) {
+         this.on = false;
 
          window.removeEventListener('deviceorientation', this.orientation);
 
