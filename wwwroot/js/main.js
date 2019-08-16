@@ -49,7 +49,7 @@ class DataCapture {
 
          window.addEventListener('devicemotion', this.motion);
       } else {
-         this.deactivateCapture;
+         this.deactivateCapture();
       }
    }
 }
