@@ -16,6 +16,7 @@ class DataCapture {
 
    constructor() {
       document.getElementById('start').onclick = this.activateCapture;
+      console.long("In constructor");
    }
 
    activateCapture() {
@@ -54,6 +55,8 @@ class DataCapture {
 }
 
 dC = new DataCapture();
+
+
 // if (!('ondeviceorientation' in window)) {
 //    document.getElementById('do-unsupported').classList.remove('hidden');
 // } else {
