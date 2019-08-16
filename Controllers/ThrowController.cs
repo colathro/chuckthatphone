@@ -10,7 +10,11 @@ namespace yeetmeto.space.Controllers
     [ApiController]
     public class ThrowController : ControllerBase
     {
-
+        [HttpGet]
+        public string Get()
+        {
+            return "test";
+        }
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
