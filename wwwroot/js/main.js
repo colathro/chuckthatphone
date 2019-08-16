@@ -19,16 +19,16 @@ class DataCapture {
       console.log("In constructor");
    }
 
-   activateCapture() {
-      if (!this.on) {
-         this.on = true;
+   orientation(event) {
+      document.getElementById('beta').innerHTML = Math.round(event.beta);
+      document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+      document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+   }
 
-         window.addEventListener('deviceorientation', this.orientation);
-
-         window.addEventListener('devicemotion', this.motion);
-      } else {
-         deactivateCapture();
-      }
+   motion(event) {
+      document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
+      document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
+      document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
    }
 
    deactivateCapture() {
@@ -41,16 +41,16 @@ class DataCapture {
       }
    }
 
-   orientation(event) {
-      document.getElementById('beta').innerHTML = Math.round(event.beta);
-      document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-      document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-   }
+   activateCapture() {
+      if (!this.on) {
+         this.on = true;
 
-   motion(event) {
-      document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
-      document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
-      document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
+         window.addEventListener('deviceorientation', this.orientation);
+
+         window.addEventListener('devicemotion', this.motion);
+      } else {
+         this.deactivateCapture;
+      }
    }
 }
 
