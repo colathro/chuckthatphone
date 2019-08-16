@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace yeetmeto.space.Models
 {
-    public class Throw : Base
+    public class Throw
     {
         public int Id { get; set; }
 

@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using yeetmeto.space.DataAccess;
 
 namespace yeetmeto.space
 {
@@ -25,9 +27,8 @@ namespace yeetmeto.space
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<DBContext>(options =>
-                options.UseSqlServer(Environment.GetEnvironmentVariable("SQLAZURECONNSTR_db")));
+                options.UseSqlServer("Server=tcp:yeetmetospace.database.windows.net,1433;Initial Catalog=yeetmetospace;Persist Security Info=False;User ID=yeet;Password=Microsoft#1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
