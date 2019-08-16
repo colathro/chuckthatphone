@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Backend.Controllers;
-using Backend.Models;
+using yeetmeto.space.Controllers;
+using yeetmeto.space.Models;
 
 namespace yeetmeto.space.DataAccess
 {
