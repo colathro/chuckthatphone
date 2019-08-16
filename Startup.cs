@@ -33,6 +33,8 @@ namespace yeetmeto.space
         {
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
