@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace yeetmeto.space.Models
 {
-    public class Throw
+    public class YeetDetail
     {
+        [Key]
         public int Id { get; set; }
 
         public string Value { get; set; }

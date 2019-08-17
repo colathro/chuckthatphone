@@ -10,11 +10,13 @@ namespace yeetmeto.space.DataAccess
         {
         }
 
-        public DbSet<Throw> Throw { get; set; }
+        public DbSet<Yeet> Yeet { get; set; }
+        public DbSet<YeetDetail> YeetDetail { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Throw>().ToTable("Throw");
+            modelBuilder.Entity<Yeet>().ToTable("Yeet");
+            modelBuilder.Entity<YeetDetail>().ToTable("YeetDetail");
         }
     }
 }
