@@ -1,0 +1,10 @@
+#LogoWrapper {
+    text-align: center;
+    margin-top: 25px;
+  }
+#LogoImage {
+    display: inline-block;
+  }
+#LogoImage img  {
+    border-radius: 50%;
+}

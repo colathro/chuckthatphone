@@ -15,7 +15,7 @@ class DataCapture {
    data = [];
 
    constructor() {
-      document.getElementById('start').onclick = this.activateCapture.bind(this);
+      document.getElementById('YeetButton').onclick = this.activateCapture.bind(this);
       console.log("In constructor");
    }
 
@@ -42,6 +42,7 @@ class DataCapture {
    }
 
    activateCapture() {
+      console.log("Clicked Yeet.")
       if (!this.on) {
          this.on = true;
 
