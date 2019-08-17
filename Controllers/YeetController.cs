@@ -23,19 +23,21 @@ namespace yeetmeto.space.Controllers
         [HttpGet]
         public ActionResult<List<Yeet>> GetTop(int count)
         {
-            return _context.Yeet.OrderByDescending(y => y.HeightMeters).Take(25).ToList();
+            return _context.Yeet.OrderByDescending(y => y.HeightMeters).Take(count).ToList();
         }
 
         [Route("devicetop")]
         [HttpGet]
         public ActionResult<List<Yeet>> GetDeviceTop(int count, string device = "")
         {
-            return _context.Yeet.Where(y => y.Device == device).OrderByDescending(y => y.HeightMeters).Take(25).ToList();
+            return _context.Yeet.Where(y => y.Device == device).OrderByDescending(y => y.HeightMeters).Take(count).ToList();
         }
         // POST api/values
         [HttpPost]
         public void Post([FromBody] Yeet yeet)
         {
+            yeet.YeetDate = DateTime.UtcNow;
+            yeet.Accepted = false;
             _context.Yeet.Add(yeet);
             _context.SaveChanges();
         }
