@@ -1,10 +1,28 @@
+body {
+    font-family: FredokaOne,arial,sans-serif;
+}
+
 #LogoWrapper {
     text-align: center;
     margin-top: 25px;
-  }
+}
+
+.CenterWrapper {
+    text-align: center;
+}
+
 #LogoImage {
     display: inline-block;
-  }
+}
+
 #LogoImage img  {
     border-radius: 50%;
+}
+
+#YeetButton {
+    transition: all .1s linear;
+}
+
+#YeetButton:active {
+    transform: translateY(3px);
 }
