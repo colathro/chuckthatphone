@@ -1,18 +1,26 @@
-class DataInstance {
-   constructor(beta, gamma, alpha, accelX, accelY, accelZ) {
+class OrientationInstance {
+   constructor(beta, gamma, alpha) {
       this.beta = beta;
       this.gamma = gamma;
       this.alpha = alpha;
+      this.time = Date.now();
+   }
+}
+
+class MotionInstance {
+   constructor(accelX, accelY, accelZ) {
       this.accelX = accelX;
       this.accelY = accelY;
       this.accelZ = accelZ;
+      this.time = Date.now();
    }
 }
 
 
 class DataCapture {
    on = false;
-   data = [];
+   motionData = [];
+   orientationData = [];
 
    constructor() {
       document.getElementById('YeetButton').onclick = this.activateCapture.bind(this);
@@ -23,12 +31,14 @@ class DataCapture {
       document.getElementById('beta').innerHTML = Math.round(event.beta);
       document.getElementById('gamma').innerHTML = Math.round(event.gamma);
       document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+      this.orientationData.push(new OrientationInstance(event.beta, event.gamma, event.alpha));
    }
 
    motion(event) {
       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
+      this.motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z))
    }
 
    deactivateCapture() {
@@ -38,6 +48,10 @@ class DataCapture {
          window.removeEventListener('deviceorientation', this.orientation);
 
          window.removeEventListener('devicemotion', this.motion);
+
+         console.log("I don't know how to put this in the database.")
+         console.log(this.orientationData.toString());
+         console.log(this.motionData.toString());
       }
    }
 
@@ -45,7 +59,8 @@ class DataCapture {
       console.log("Clicked Yeet.")
       if (!this.on) {
          this.on = true;
-
+         this.motionData = [];
+         this.orientationData = [];
          window.addEventListener('deviceorientation', this.orientation);
 
          window.addEventListener('devicemotion', this.motion);
