@@ -65,6 +65,7 @@ class DataCapture {
 
          window.addEventListener('devicemotion', this.motion);
       } else {
+         console.log("Done Yeeting.");
          this.deactivateCapture();
       }
    }
