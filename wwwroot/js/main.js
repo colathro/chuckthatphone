@@ -48,7 +48,7 @@ class DataCapture {
       document.getElementById('grav-z').innerHTML = Math.round(event.accelerationIncludingGravity.z);
 
 
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.accleration.x - event.accelerationIncludingGravity.x, event.accleration.y - event.accelerationIncludingGravity.y, event.accleration.z - event.accelerationIncludingGravity.z));
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.acceleration.x - event.accelerationIncludingGravity.x, event.acceleration.y - event.accelerationIncludingGravity.y, event.acceleration.z - event.accelerationIncludingGravity.z));
    }
 
    deactivateCapture() {
