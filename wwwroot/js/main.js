@@ -1,17 +1,17 @@
 class OrientationInstance {
    constructor(beta, gamma, alpha) {
-      this.beta = beta;
-      this.gamma = gamma;
-      this.alpha = alpha;
+      this.a = beta;
+      this.b = gamma;
+      this.c = alpha;
       this.time = Date.now();
    }
 }
 
 class MotionInstance {
    constructor(accelX, accelY, accelZ) {
-      this.accelX = accelX;
-      this.accelY = accelY;
-      this.accelZ = accelZ;
+      this.a = accelX;
+      this.b = accelY;
+      this.c = accelZ;
       this.time = Date.now();
    }
 }
@@ -54,14 +54,14 @@ class DataCapture {
          console.log(orientationData.toString());
          console.log(motionData.toString());
          var xhr = new XMLHttpRequest();
-         xhr.open("POST", "yeetmeto.space/api/yeet", true);
+         xhr.open("POST", "/api/yeet", true);
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
                device: "Kendras Dumb Phone",
                heightmeters: 9000.00,
                yeetdetail: {
-                  value: 'Orientation: ' + orientationData.toString() + ' - Motion: ' + motionData.toString()
+                  value: 'Orientation: ' + joinArrayObs(orientationData) + ' - Motion: ' + joinArrayObs(motionDat)
                }
             }));
       }
@@ -80,6 +80,14 @@ class DataCapture {
          console.log("Done Yeeting.");
          this.deactivateCapture();
       }
+   }
+
+   joinArrayObjs(ar) {
+      var str = '';
+      for (var i = 0, len = ar.length; i < len; i++) {
+         str += ar[i].a + '|' + ar[i].b + '|' + ar[i].c;
+      }
+      return str;
    }
 }
 
