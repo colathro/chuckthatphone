@@ -61,7 +61,7 @@ class DataCapture {
                device: "Kendras Dumb Phone",
                heightmeters: 9000.00,
                yeetdetail: {
-                  value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionDat)
+                  value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
                }
             }));
       }
