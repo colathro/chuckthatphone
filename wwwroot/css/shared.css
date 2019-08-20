@@ -34,3 +34,14 @@ body {
     transform: translateX(-50%);
     bottom: 10px
 }
+
+#LeaderboardList {
+    list-style: none;
+    padding: 0;
+}
+
+#LeaderboardList li {
+    padding: 5px 10px;
+    background-color: #EEEEEE;
+    border: 1px solid #DDDDDD;
+}
