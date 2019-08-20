@@ -82,7 +82,7 @@ class DataCapture {
       }
    }
 
-   joinArrayObjs(ar) {
+   joinArrayObs(ar) {
       var str = '';
       for (var i = 0, len = ar.length; i < len; i++) {
          str += ar[i].a + '|' + ar[i].b + '|' + ar[i].c;
