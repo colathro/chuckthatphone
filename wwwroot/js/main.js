@@ -19,8 +19,8 @@ class MotionInstance {
 
 class DataCapture {
    on = false;
-   motionData = [];
-   orientationData = [];
+   motionData = new Array();
+   orientationData = new Array();
 
    constructor() {
       document.getElementById('YeetButton').onclick = this.activateCapture.bind(this);
