@@ -53,6 +53,17 @@ class DataCapture {
          console.log("I don't know how to put this in the database.")
          console.log(orientationData.toString());
          console.log(motionData.toString());
+         var xhr = new XMLHttpRequest();
+         xhr.open("POST", "yeetmeto.space/api/yeet", true);
+         xhr.setRequestHeader('Content-Type', 'application/json');
+         xhr.send(JSON.stringify(
+            {
+               device: "Kendras Dumb Phone",
+               heightmeters: 9000.00,
+               yeetdetail: {
+                  value: 'Orientation: ' + orientationData.toString() + ' - Motion: ' + motionData.toString()
+               }
+            }));
       }
    }
 
