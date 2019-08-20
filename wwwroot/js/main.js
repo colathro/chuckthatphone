@@ -8,10 +8,13 @@ class OrientationInstance {
 }
 
 class MotionInstance {
-   constructor(accelX, accelY, accelZ) {
+   constructor(accelX, accelY, accelZ, gravX, gravY, gravZ) {
       this.a = accelX;
       this.b = accelY;
       this.c = accelZ;
+      this.gravX = gravX;
+      this.gravY = gravY;
+      this.gravZ = gravZ;
       this.time = Date.now();
    }
 }
@@ -43,7 +46,9 @@ class DataCapture {
       document.getElementById('grav-x').innerHTML = Math.round(event.accelerationIncludingGravity.x);
       document.getElementById('grav-y').innerHTML = Math.round(event.accelerationIncludingGravity.y);
       document.getElementById('grav-z').innerHTML = Math.round(event.accelerationIncludingGravity.z);
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z))
+
+
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.accleration.x - event.accelerationIncludingGravity.x, event.accleration.y - event.accelerationIncludingGravity.y, event.accleration.z - event.accelerationIncludingGravity.z));
    }
 
    deactivateCapture() {
@@ -89,7 +94,7 @@ class DataCapture {
    joinArrayObs(ar) {
       var str = '';
       for (var i = 0, len = ar.length; i < len; i++) {
-         str += '{' + ar[i].a + ',' + ar[i].b + ',' + ar[i].c + ',' + ar[i].time + '},'
+         str += '{' + ar[i].a + ',' + ar[i].b + ',' + ar[i].c + ',' + ar[i].gravX + ',' + ar[i].gravY + ',' + ar[i].gravZ + ',' + ar[i].time + '},'
       }
       return str;
    }
