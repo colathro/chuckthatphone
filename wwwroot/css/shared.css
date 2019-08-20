@@ -26,3 +26,11 @@ body {
 #YeetButton:active {
     transform: translateY(3px);
 }
+
+#YeetWrapper {
+    position: fixed;
+    /* width: 98%; */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px
+}
