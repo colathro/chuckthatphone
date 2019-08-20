@@ -39,6 +39,13 @@ class DataCapture {
       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
+      // Get the accelerometer data.
+      if (data = self.motion.accelerometerData) {
+         let x = data.acceleration.x
+         let y = data.acceleration.y
+         let z = data.acceleration.z
+      }
+
       motionData.push(new MotionInstance(Math.round(event.acceleration.x), Math.round(event.acceleration.y), Math.round(event.acceleration.z)))
    }
 
@@ -58,7 +65,7 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: "Kendras Dumb Phone",
+               device: "At least my phone is still whole",
                heightmeters: 9000.00,
                yeetdetail: {
                   value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
