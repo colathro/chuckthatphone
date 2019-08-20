@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <meta name="author" content="Aurelio De Rosa">
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    <title>Device Orientation API Demo by Aurelio De Rosa</title>
    <link rel="stylesheet" href="../css/shared.css" />
 </head>
@@ -34,7 +34,7 @@
          </div>
 
          <div id="LeaderboardWrapper">
-            <ul id="LeaderboardList">
+            <ul class="rolldown-list" id="myList">
                   <li>
                         <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span class="YeeterDevice">IPhone X</span>
                   </li>
@@ -52,6 +52,20 @@
          <div><img id="YeetButton" src="../images/button.png" width="200" height="94"></div>
       </div>
    </div>
+   <script>
+      console.log('test');
+         $('.rolldown-list li').each(function () {
+         var delay = ($(this).index() / 4) + 's';
+         $(this).css({
+            webkitAnimationDelay: delay,
+            mozAnimationDelay: delay,
+            animationDelay: delay
+         });
+         });
+         setTimeout(function () {
+            $('#myList').addClass('rolldown-list');
+               }, 1);
+   </script>
    <script src="/js/main.js"></script>
 </body>
 
