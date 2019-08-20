@@ -42,11 +42,15 @@ body {
     }
   
   .rolldown-list li {
+    margin: 1px;
+    border-radius: 4px;
     color: #ffffff;
     font-family: FredokaOne,arial,sans-serif;
   }
   
   .rolldown-list li {
+    margin: 1px;
+    border-radius: 4px;
     visibility: hidden;
     animation: rolldown .3s 1;
     transform-origin: 50% 0;
@@ -54,11 +58,11 @@ body {
   }
   
   .rolldown-list li:nth-child(2n) {
-    background-color: #8f8f8f;
+    background-color: #63d49a;
   }
   
   .rolldown-list li:nth-child(2n+1) {
-    background-color: #adadad;
+    background-color: #53AF80;
   }
 
   .YeeterName {
