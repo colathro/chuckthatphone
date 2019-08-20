@@ -25,25 +25,28 @@
                m/s<sup>2</sup>
             </p>
             <p>
-               Coordinates:
-               (<span id="beta" class="value">null</span>,
-               <span id="gamma" class="value">null</span>,
-               <span id="alpha" class="value">null</span>)
+               Grav:
+               (<span id="grav-x" class="value">null</span>,
+               <span id="grav-y" class="value">null</span>,
+               <span id="grav-z" class="value">null</span>)
                <br />
             </p>
          </div>
 
          <div id="LeaderboardWrapper">
             <ul class="rolldown-list" id="myList">
-                  <li>
-                        <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span class="YeeterDevice">IPhone X</span>
-                  </li>
-                  <li>
-                        <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span class="YeeterDevice">IPhone X</span>
-                  </li>
-                  <li>
-                        <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span class="YeeterDevice">IPhone X</span>
-                  </li>
+               <li>
+                  <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
+                     class="YeeterDevice">IPhone X</span>
+               </li>
+               <li>
+                  <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
+                     class="YeeterDevice">IPhone X</span>
+               </li>
+               <li>
+                  <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
+                     class="YeeterDevice">IPhone X</span>
+               </li>
             </ul>
 
          </div>
@@ -54,17 +57,17 @@
    </div>
    <script>
       console.log('test');
-         $('.rolldown-list li').each(function () {
+      $('.rolldown-list li').each(function () {
          var delay = ($(this).index() / 4) + 's';
          $(this).css({
             webkitAnimationDelay: delay,
             mozAnimationDelay: delay,
             animationDelay: delay
          });
-         });
-         setTimeout(function () {
-            $('#myList').addClass('rolldown-list');
-               }, 1);
+      });
+      setTimeout(function () {
+         $('#myList').addClass('rolldown-list');
+      }, 1);
    </script>
    <script src="/js/main.js"></script>
 </body>
