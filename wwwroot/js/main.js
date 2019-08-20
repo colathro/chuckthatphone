@@ -51,8 +51,8 @@ class DataCapture {
          window.removeEventListener('devicemotion', this.motion);
 
          console.log("I don't know how to put this in the database.")
-         console.log(orientationData.toString());
-         console.log(motionData.toString());
+         console.log(this.joinArrayObs(orientationData));
+         console.log(this.joinArrayObs(motionData));
          var xhr = new XMLHttpRequest();
          xhr.open("POST", "/api/yeet", true);
          xhr.setRequestHeader('Content-Type', 'application/json');
@@ -61,7 +61,7 @@ class DataCapture {
                device: "Kendras Dumb Phone",
                heightmeters: 9000.00,
                yeetdetail: {
-                  value: 'Orientation: ' + joinArrayObs(orientationData) + ' - Motion: ' + joinArrayObs(motionDat)
+                  value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionDat)
                }
             }));
       }
