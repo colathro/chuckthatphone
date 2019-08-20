@@ -51,8 +51,8 @@ class DataCapture {
          window.removeEventListener('devicemotion', this.motion);
 
          console.log("I don't know how to put this in the database.")
-         console.log(this.orientationData.toString());
-         console.log(this.motionData.toString());
+         console.log(orientationData.toString());
+         console.log(motionData.toString());
       }
    }
 
