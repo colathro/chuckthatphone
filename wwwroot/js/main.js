@@ -28,32 +28,29 @@ class DataCapture {
       console.log("In constructor");
    }
 
-   orientation(event) {
-      document.getElementById('beta').innerHTML = Math.round(event.beta);
-      document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-      document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-      orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
-   }
+   // orientation(event) {
+   //    document.getElementById('beta').innerHTML = Math.round(event.beta);
+   //    document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+   //    document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+   //    orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
+   // }
 
    motion(event) {
       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
-      // Get the accelerometer data.
-      if (data = self.motion.accelerometerData) {
-         let x = data.acceleration.x
-         let y = data.acceleration.y
-         let z = data.acceleration.z
-      }
 
-      motionData.push(new MotionInstance(Math.round(event.acceleration.x), Math.round(event.acceleration.y), Math.round(event.acceleration.z)))
+      document.getElementById('grav-x').innerHTML = Math.round(event.accelerationIncludingGravity.x);
+      document.getElementById('grav-y').innerHTML = Math.round(event.accelerationIncludingGravity.y);
+      document.getElementById('grav-z').innerHTML = Math.round(event.accelerationIncludingGravity.z);
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z))
    }
 
    deactivateCapture() {
       if (this.on) {
          this.on = false;
 
-         window.removeEventListener('deviceorientation', this.orientation);
+         //window.removeEventListener('deviceorientation', this.orientation);
 
          window.removeEventListener('devicemotion', this.motion);
 
@@ -65,7 +62,7 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: "At least my phone is still whole",
+               device: "Kendras Dumb Phone",
                heightmeters: 9000.00,
                yeetdetail: {
                   value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
@@ -80,7 +77,7 @@ class DataCapture {
          this.on = true;
          motionData = new Array();
          orientationData = new Array();
-         window.addEventListener('deviceorientation', this.orientation);
+         //window.addEventListener('deviceorientation', this.orientation);
 
          window.addEventListener('devicemotion', this.motion);
       } else {
