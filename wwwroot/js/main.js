@@ -54,7 +54,7 @@ class DataCapture {
          console.log(orientationData.toString());
          console.log(motionData.toString());
          var xhr = new XMLHttpRequest();
-         xhr.open("POST", "yeetmeto.space/api/yeet", true);
+         xhr.open("POST", "/api/yeet", true);
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
