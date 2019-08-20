@@ -32,14 +32,14 @@ class DataCapture {
       document.getElementById('beta').innerHTML = Math.round(event.beta);
       document.getElementById('gamma').innerHTML = Math.round(event.gamma);
       document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-      orientationData.push(new OrientationInstance(event.beta, event.gamma, event.alpha));
+      orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
    }
 
    motion(event) {
       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z))
+      motionData.push(new MotionInstance(Math.round(event.acceleration.x), Math.round(event.acceleration.y), Math.round(event.acceleration.z)))
    }
 
    deactivateCapture() {
@@ -85,7 +85,7 @@ class DataCapture {
    joinArrayObs(ar) {
       var str = '';
       for (var i = 0, len = ar.length; i < len; i++) {
-         str += ar[i].a + '|' + ar[i].b + '|' + ar[i].c;
+         str += '{' + ar[i].a + ',' + ar[i].b + ',' + ar[i].c + ',' + ar[i].time + '},'
       }
       return str;
    }
