@@ -41,7 +41,24 @@ body {
 }
 
 #LeaderboardList li {
-    padding: 5px 10px;
+    padding: 3px;
     background-color: #EEEEEE;
-    border: 1px solid #DDDDDD;
+    font-family: FredokaOne,arial,sans-serif
+}
+
+.YeeterName {
+    width: 33%;
+    display: inline-block;
+
+}
+
+.YeeterDevice {
+    width: 33%;
+    display: inline-block;
+}
+
+.YeeterHeight {
+    width: 33%;
+    display: inline-block;
+
 }
