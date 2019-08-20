@@ -17,10 +17,11 @@ class MotionInstance {
 }
 
 
+var motionData = new Array();
+var orientationData = new Array();
+
 class DataCapture {
    on = false;
-   motionData = new Array();
-   orientationData = new Array();
 
    constructor() {
       document.getElementById('YeetButton').onclick = this.activateCapture.bind(this);
@@ -31,14 +32,14 @@ class DataCapture {
       document.getElementById('beta').innerHTML = Math.round(event.beta);
       document.getElementById('gamma').innerHTML = Math.round(event.gamma);
       document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-      this.orientationData.push(new OrientationInstance(event.beta, event.gamma, event.alpha));
+      orientationData.push(new OrientationInstance(event.beta, event.gamma, event.alpha));
    }
 
    motion(event) {
       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
-      this.motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z))
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z))
    }
 
    deactivateCapture() {
@@ -59,8 +60,8 @@ class DataCapture {
       console.log("Clicked Yeet.")
       if (!this.on) {
          this.on = true;
-         this.motionData = [];
-         this.orientationData = [];
+         motionData = new Array();
+         orientationData = new Array();
          window.addEventListener('deviceorientation', this.orientation);
 
          window.addEventListener('devicemotion', this.motion);
