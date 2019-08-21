@@ -21,10 +21,12 @@ body {
 
 #YeetButton {
     transition: all .1s linear;
+
 }
 
 #YeetButton:active {
     transform: translateY(3px);
+    cursor: pointer;
 }
 
 #YeetWrapper {
