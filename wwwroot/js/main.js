@@ -27,7 +27,7 @@ class DataCapture {
    on = false;
 
    constructor() {
-      document.getElementById('YeetButton').onclick = this.activateCapture.bind(this);
+      document.getElementById('YeetButton').addeventlistener('touchstart', this.activateCapture.bind(this));
       console.log("In constructor");
    }
 
