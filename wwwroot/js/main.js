@@ -88,6 +88,8 @@ class DataCapture {
          xhr.send(JSON.stringify(
             {
                device: "Kendras Dumb Phone",
+               name: 'c-diddy',
+               socialmedia: 1,
                heightmeters: 9000.00,
                yeetdetail: {
                   value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)

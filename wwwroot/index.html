@@ -35,42 +35,6 @@
 
          <div id="LeaderboardWrapper">
             <ul class="rolldown-list" id="myList">
-               <li>
-                  <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                     class="YeeterDevice">IPhone X</span>
-               </li>
-               <li>
-                  <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                     class="YeeterDevice">IPhone X</span>
-               </li>
-               <li>
-                  <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                     class="YeeterDevice">IPhone X</span>
-               </li>
-               <li>
-                     <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                        class="YeeterDevice">IPhone X</span>
-                  </li>
-                  <li>
-                     <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                        class="YeeterDevice">IPhone X</span>
-                  </li>
-                  <li>
-                     <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                        class="YeeterDevice">IPhone X</span>
-                  </li>
-                  <li>
-                        <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                           class="YeeterDevice">IPhone X</span>
-                     </li>
-                     <li>
-                        <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                           class="YeeterDevice">IPhone X</span>
-                     </li>
-                     <li>
-                        <span class="YeeterName">Carl</span><span class="YeeterHeight">65 Meters</span><span
-                           class="YeeterDevice">IPhone X</span>
-                     </li>
             </ul>
 
          </div>
@@ -78,20 +42,7 @@
       <div class="CenterWrapper" id="YeetWrapper">
          <div><img id="YeetButton" src="../images/button.png" width="200" height="94"></div>
       </div>
-   </div>
-   <script>
-      $('.rolldown-list li').each(function () {
-         var delay = ($(this).index() / 10) + 's';
-         $(this).css({
-            webkitAnimationDelay: delay,
-            mozAnimationDelay: delay,
-            animationDelay: delay
-         });
-      });
-      setTimeout(function () {
-         $('#myList').addClass('rolldown-list');
-      }, 1);
-   </script>
+   <script src='/js/yeeterboard.js'></script>
    <script src="/js/main.js"></script>
 </body>
 
