@@ -13,12 +13,13 @@
         var deviceSpan = document.createElement('span');
         deviceSpan.innerText = element.device;
         deviceSpan.className = 'YeeterDevice';
-
         node.appendChild(nameSpan);
         node.appendChild(heightSpan);
         node.appendChild(deviceSpan);
-        document.getElementById('myList').appendChild(node);
-
+        node.style.cssText = 'display: none'
+        sleep(50).then(() => {
+            document.getElementById('myList').appendChild(node)
+        });
      });
     console.log(arr);
  }
@@ -46,7 +47,8 @@ function sleep (time) {
         $(this).css({
            webkitAnimationDelay: delay,
            mozAnimationDelay: delay,
-           animationDelay: delay
+           animationDelay: delay,
+           display: 'list-item'
         });
      });
      setTimeout(function () {
