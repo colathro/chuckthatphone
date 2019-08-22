@@ -23,6 +23,11 @@ class MotionInstance {
 var motionData = new Array();
 var orientationData = new Array();
 var on = false;
+var maxPos = 0;
+var pos = 0;
+var vel = 0;
+var G = Math.pow(9.807, 2);
+var previousVec = [0, 0, 0];
 
 class DataCapture {
    constructor() {
@@ -46,8 +51,24 @@ class DataCapture {
       document.getElementById('grav-y').innerHTML = Math.round(event.accelerationIncludingGravity.y);
       document.getElementById('grav-z').innerHTML = Math.round(event.accelerationIncludingGravity.z);
 
+      var xG = event.accelerationIncludingGravity.x - event.acceleration.x;
+      var yG = event.accelerationIncludingGravity.y - event.acceleration.y;
+      var zG = event.accelerationIncludingGravity.z - event.acceleration.z;
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, xG, yG, zG));
+      xG = Math.pow(xG, 2);
+      yG = Math.pow(yG, 2);
+      zG = Math.pow(zG, 2);
+      if (xG + yG + zG > G - 2 && xG + yG + zG < G + 2) {
+         previousVec = [xG / G, yG / G, zG / G];
+      }
+      var A = event.acceleration.x * previousVec[0] + event.acceleration.y * previousVec[1] + event.acceleration.z * previousVec[2];
+      A = A * event.interval / 1000;
+      vel += A;
+      pos += vel;
+      if (pos > maxPos) {
+         maxPos = pos;
+      }
 
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.acceleration.x - event.accelerationIncludingGravity.x, event.acceleration.y - event.accelerationIncludingGravity.y, event.acceleration.z - event.accelerationIncludingGravity.z));
    }
 
    deactivateCapture() {
