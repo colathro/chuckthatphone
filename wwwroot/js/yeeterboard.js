@@ -17,9 +17,7 @@
         node.appendChild(heightSpan);
         node.appendChild(deviceSpan);
         node.style.cssText = 'display: none'
-        sleep(50).then(() => {
             document.getElementById('myList').appendChild(node)
-        });
      });
     console.log(arr);
  }
