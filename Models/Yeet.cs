@@ -11,6 +11,11 @@ namespace yeetmeto.space.Models
 
         public YeetDetail YeetDetail { get; set; }
 
+        public int SocialMedia { get; set; }
+
+        [MaxLength(100)]
+        public string Name { get; set; }
+
         [MaxLength(50)]
         public string Device { get; set; }
 
