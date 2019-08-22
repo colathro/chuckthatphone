@@ -13,10 +13,10 @@ namespace yeetmeto.space.Models
 
         public int SocialMedia { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(15)]
         public string Name { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(15)]
         public string Device { get; set; }
 
         public float HeightMeters { get; set; }

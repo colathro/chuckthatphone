@@ -7,6 +7,11 @@ body {
     margin-top: 25px;
 }
 
+#LogoImage img {
+    width: 50%;
+    height: 50%;
+}
+
 .CenterWrapper {
     text-align: center;
 }
@@ -21,7 +26,8 @@ body {
 
 #YeetButton {
     transition: all .1s linear;
-
+    width: 75%;
+    height: 75%;
 }
 
 #YeetButton:active {
@@ -58,6 +64,10 @@ body {
     transform-origin: 50% 0;
     animation-fill-mode: forwards;
   }
+
+  .rolldown-list li span {
+      width: 33%;
+  }
   
   .rolldown-list li:nth-child(2n) {
     background-color: #63d49a;
@@ -69,21 +79,20 @@ body {
 
   .YeeterName {
     width: 33%;
-    display: inline-block;
     color: #ffffff;
-
+    display:inline-block;
 }
 
 .YeeterDevice {
     width: 33%;
-    display: inline-block;
     color: #ffffff;
+    display:inline-block;
 }
 
 .YeeterHeight {
     width: 33%;
-    display: inline-block;
     color: #ffffff;
+    display:inline-block;
 }
 
   @keyframes rolldown {
