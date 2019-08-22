@@ -95,10 +95,10 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: "iPhoneX",
-               name: 'c-diddy',
+               device: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+               name: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
                socialmedia: 1,
-               heightmeters: 9000.00,
+               heightmeters: Math.random() * 10,
                yeetdetail: {
                   value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
                }
