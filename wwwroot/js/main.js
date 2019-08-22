@@ -79,7 +79,7 @@ class DataCapture {
       if (this.on) {
          this.on = false;
 
-         //window.removeEventListener('deviceorientation', this.orientation);
+         window.removeEventListener('deviceorientation', this.orientation);
 
          window.removeEventListener('devicemotion', this.motion);
          document.getElementById('height').innerHTML = Math.round(maxPos);
@@ -113,7 +113,7 @@ class DataCapture {
          this.on = true;
          motionData = new Array();
          orientationData = new Array();
-         //window.addEventListener('deviceorientation', this.orientation);
+         window.addEventListener('deviceorientation', this.orientation);
 
          window.addEventListener('devicemotion', this.motion);
       } else {
