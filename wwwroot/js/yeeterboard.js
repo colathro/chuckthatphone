@@ -20,6 +20,18 @@
             document.getElementById('myList').appendChild(node)
      });
     console.log(arr);
+    $('.rolldown-list li').each(function () {
+        var delay = ($(this).index() / 10) + 's';
+        $(this).css({
+           webkitAnimationDelay: delay,
+           mozAnimationDelay: delay,
+           animationDelay: delay,
+           display: 'list-item'
+        });
+     });
+     setTimeout(function () {
+        $('#myList').addClass('rolldown-list');
+     }, 1);
  }
 
  var xmlhttp = new XMLHttpRequest();
@@ -34,24 +46,5 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
-function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-  }
-  
-  // Usage!
-  sleep(500).then(() => {
-      $('.rolldown-list li').each(function () {
-        var delay = ($(this).index() / 10) + 's';
-        $(this).css({
-           webkitAnimationDelay: delay,
-           mozAnimationDelay: delay,
-           animationDelay: delay,
-           display: 'list-item'
-        });
-     });
-     setTimeout(function () {
-        $('#myList').addClass('rolldown-list');
-     }, 1);
-  });
 
 
