@@ -68,6 +68,7 @@ class DataCapture {
       if (pos > maxPos) {
          maxPos = pos;
       }
+      document.getElementById('height').innerHTML = Math.round(pos);
 
    }
 
@@ -78,6 +79,11 @@ class DataCapture {
          //window.removeEventListener('deviceorientation', this.orientation);
 
          window.removeEventListener('devicemotion', this.motion);
+         document.getElementById('height').innerHTML = Math.round(maxPos);
+         maxPos = 0;
+         pos = 0;
+         vel = 0;
+         previousVec = [0, 0, 0];
 
          console.log("I don't know how to put this in the database.")
          console.log(this.joinArrayObs(orientationData));
@@ -87,7 +93,7 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: "Kendras Dumb Phone",
+               device: "iPhoneX",
                name: 'c-diddy',
                socialmedia: 1,
                heightmeters: 9000.00,
