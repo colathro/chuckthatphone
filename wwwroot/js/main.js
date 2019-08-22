@@ -36,31 +36,32 @@ class DataCapture {
       console.log("In constructor");
    }
 
-   // orientation(event) {
-   //    document.getElementById('beta').innerHTML = Math.round(event.beta);
-   //    document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-   //    document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-   //    orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
-   // }
+   orientation(event) {
+      document.getElementById('grav-x').innerHTML = Math.round(event.beta);
+      document.getElementById('grav-y').innerHTML = Math.round(event.gamma);
+      document.getElementById('grav-z').innerHTML = Math.round(event.alpha);
+      previousVec = [event.beta, event.gamma, event.alpha];
+      //orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
+   }
 
    motion(event) {
       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
 
-      document.getElementById('grav-x').innerHTML = Math.round(event.accelerationIncludingGravity.x);
-      document.getElementById('grav-y').innerHTML = Math.round(event.accelerationIncludingGravity.y);
-      document.getElementById('grav-z').innerHTML = Math.round(event.accelerationIncludingGravity.z);
+      // document.getElementById('grav-x').innerHTML = Math.round(event.accelerationIncludingGravity.x);
+      // document.getElementById('grav-y').innerHTML = Math.round(event.accelerationIncludingGravity.y);
+      // document.getElementById('grav-z').innerHTML = Math.round(event.accelerationIncludingGravity.z);
 
-      var xG = event.accelerationIncludingGravity.x - event.acceleration.x;
-      var yG = event.accelerationIncludingGravity.y - event.acceleration.y;
-      var zG = event.accelerationIncludingGravity.z - event.acceleration.z;
-      xG = Math.pow(xG, 2);
-      yG = Math.pow(yG, 2);
-      zG = Math.pow(zG, 2);
-      if (xG + yG + zG > G - 2 && xG + yG + zG < G + 2) {
-         previousVec = [xG / G, yG / G, zG / G];
-      }
+      // var xG = event.accelerationIncludingGravity.x - event.acceleration.x;
+      // var yG = event.accelerationIncludingGravity.y - event.acceleration.y;
+      // var zG = event.accelerationIncludingGravity.z - event.acceleration.z;
+      // xG = Math.pow(xG, 2);
+      // yG = Math.pow(yG, 2);
+      // zG = Math.pow(zG, 2);
+      // if (xG + yG + zG > G - 2 && xG + yG + zG < G + 2) {
+      //    previousVec = [xG / G, yG / G, zG / G];
+      // }
       var A = event.acceleration.x * previousVec[0] + event.acceleration.y * previousVec[1] + event.acceleration.z * previousVec[2];
       A = A * event.interval / 1000;
       vel += A;
@@ -95,10 +96,10 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
-               name: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+               device: "iPhoneX",
+               name: 'c-diddy',
                socialmedia: 1,
-               heightmeters: Math.random() * 10,
+               heightmeters: 9000.00,
                yeetdetail: {
                   value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
                }
