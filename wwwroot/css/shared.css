@@ -7,11 +7,6 @@ body {
     margin-top: 25px;
 }
 
-#LogoImage img {
-    width: 50%;
-    height: 50%;
-}
-
 .CenterWrapper {
     text-align: center;
 }
@@ -22,12 +17,14 @@ body {
 
 #LogoImage img  {
     border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
 }
 
 #YeetButton {
     transition: all .1s linear;
-    width: 75%;
-    height: 75%;
+    width: 30vw;
+    height: 15vw;
 }
 
 #YeetButton:active {
