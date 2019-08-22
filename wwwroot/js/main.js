@@ -8,13 +8,14 @@ class OrientationInstance {
 }
 
 class MotionInstance {
-   constructor(accelX, accelY, accelZ, gravX, gravY, gravZ) {
+   constructor(accelX, accelY, accelZ, gravX, gravY, gravZ, pos) {
       this.a = accelX;
       this.b = accelY;
       this.c = accelZ;
       this.gravX = gravX;
       this.gravY = gravY;
       this.gravZ = gravZ;
+      this.pos = pos;
       this.time = Date.now();
    }
 }
@@ -54,7 +55,6 @@ class DataCapture {
       var xG = event.accelerationIncludingGravity.x - event.acceleration.x;
       var yG = event.accelerationIncludingGravity.y - event.acceleration.y;
       var zG = event.accelerationIncludingGravity.z - event.acceleration.z;
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, xG, yG, zG));
       xG = Math.pow(xG, 2);
       yG = Math.pow(yG, 2);
       zG = Math.pow(zG, 2);
@@ -69,6 +69,8 @@ class DataCapture {
          maxPos = pos;
       }
       document.getElementById('height').innerHTML = Math.round(pos);
+
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, xG, yG, zG, pos));
 
    }
 
