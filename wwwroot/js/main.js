@@ -95,8 +95,8 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
-               name: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+               device: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5),
+               name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5),
                socialmedia: 1,
                heightmeters: Math.random() * 10,
                yeetdetail: {
