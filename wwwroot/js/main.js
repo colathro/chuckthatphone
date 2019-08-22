@@ -22,12 +22,11 @@ class MotionInstance {
 
 var motionData = new Array();
 var orientationData = new Array();
+var on = false;
 
 class DataCapture {
-   on = false;
-
    constructor() {
-      document.getElementById('YeetButton').addeventlistener('touchstart', this.activateCapture.bind(this));
+      document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
       console.log("In constructor");
    }
 
