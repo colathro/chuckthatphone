@@ -61,7 +61,6 @@ header {
 #YeetButton {
     transition: all .1s linear;
     width: 30vw;
-    height: 15vw;
     border-radius: 25%;
 }
 
@@ -72,8 +71,18 @@ header {
 
 #YeetWrapper {
     /* width: 98%; */
-    bottom: 10px
+    text-align: center;
 }
+
+
+#YeetWrapper div h1 {
+  background-color: rgba(7, 46, 173, 0.5);
+  border-radius: 25%;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 
     .rolldown-list {
         list-style: none;
