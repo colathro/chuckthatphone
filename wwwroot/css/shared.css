@@ -1,10 +1,44 @@
 body {
     font-family: FredokaOne,arial,sans-serif;
+    margin: 0 auto;
+    text-align: center;
+    background-image: url(../images/headerbackground.JPG);
+    background-attachment: fixed;
+}
+
+header {
+    margin: 0 auto;
+}
+
+@font-face {
+    font-family: FredokaOne;
+    font-weight: 600;
+    font-style: normal;
+    src: url(../fonts/fredokaone.woff2) format("woff2"),url(../fonts/fredokaone.woff) format("woff"),url(../fonts/fredokaone.ttf) format("truetype")
 }
 
 #LogoWrapper {
-    text-align: center;
-    margin-top: 25px;
+    font-family: FredokaOne,arial,sans-serif;
+    line-height: 1.25em;
+    text-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+
+#LogoWrapper h1 {
+    margin: 0 auto;
+    letter-spacing: 4px;
+    height: 20vw;
+    padding-top: 32px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+#LogoWrapper h2 {
+    font-size: .5em;
+    margin: 0 auto;
+    height: 10vw;
+    padding-bottom: 10px;
+    font-weight: normal;
+    color: #ffffff;
 }
 
 .CenterWrapper {
@@ -17,14 +51,15 @@ body {
 
 #LogoImage img  {
     border-radius: 50%;
-    width: 15vw;
-    height: 15vw;
+    width: 18vw;
+    height: 18vw;
 }
 
 #YeetButton {
     transition: all .1s linear;
     width: 30vw;
     height: 15vw;
+    border-radius: 25%;
 }
 
 #YeetButton:active {
@@ -33,10 +68,7 @@ body {
 }
 
 #YeetWrapper {
-    position: fixed;
     /* width: 98%; */
-    left: 50%;
-    transform: translateX(-50%);
     bottom: 10px
 }
 
@@ -67,28 +99,25 @@ body {
   }
   
   .rolldown-list li:nth-child(2n) {
-    background-color: #63d49a;
+    background-color: rgba(92, 124, 151, .50);
   }
   
   .rolldown-list li:nth-child(2n+1) {
-    background-color: #53AF80;
+    background-color: rgba(92, 124,167, .50);
   }
 
   .YeeterName {
     width: 33%;
-    color: #ffffff;
     display:inline-block;
 }
 
 .YeeterDevice {
     width: 33%;
-    color: #ffffff;
     display:inline-block;
 }
 
 .YeeterHeight {
     width: 33%;
-    color: #ffffff;
     display:inline-block;
 }
 

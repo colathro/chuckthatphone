@@ -11,42 +11,40 @@
 </head>
 
 <body>
-   <div>
-      <div class="CenterWrapper">
-         <div id="LogoImage"><img src="../images/logo.png"></div>
-      </div>
-      <div class="CenterWrapper">
-         <div id="dm-info" class="hidden">
-            <p>
-               Acceleration:
-               (<span id="acceleration-x" class="value">null</span>,
-               <span id="acceleration-y" class="value">null</span>,
-               <span id="acceleration-z" class="value">null</span>)
-               m/s<sup>2</sup>
-            </p>
-            <p>
-               Grav:
-               (<span id="grav-x" class="value">null</span>,
-               <span id="grav-y" class="value">null</span>,
-               <span id="grav-z" class="value">null</span>)
-               <br />
-            </p>
-            <p>
-               Height:
-               (<span id="height" class="value">null</span>)
-               <br />
-            </p>
-         </div>
-
-         <div id="LeaderboardWrapper">
-            <ul class="rolldown-list" id="myList">
-            </ul>
-
-         </div>
-      </div>
+      <header class="CenterWrapper" id="LogoWrapper">
+         <h1>Yeetmeto.space</h1>
+         <h2>yeet that fuckin phone</h2>
+      </header>
       <div class="CenterWrapper" id="YeetWrapper">
          <div><img id="YeetButton" src="../images/button.png" width="200" height="94"></div>
       </div>
+
+      <div id="LeaderboardWrapper">
+            <ul class="rolldown-list" id="myList">
+            </ul>
+      </div>
+      <div class="CenterWrapper">
+            <div id="dm-info" class="hidden">
+               <p>
+                  Acceleration:
+                  (<span id="acceleration-x" class="value">null</span>,
+                  <span id="acceleration-y" class="value">null</span>,
+                  <span id="acceleration-z" class="value">null</span>)
+                  m/s<sup>2</sup>
+               </p>
+               <p>
+                  Grav:
+                  (<span id="grav-x" class="value">null</span>,
+                  <span id="grav-y" class="value">null</span>,
+                  <span id="grav-z" class="value">null</span>)
+                  <br />
+               </p>
+               <p>
+                  Height:
+                  (<span id="height" class="value">null</span>)
+                  <br />
+               </p>
+            </div>
       <script src='/js/yeeterboard.js'></script>
       <script src="/js/main.js"></script>
 </body>
