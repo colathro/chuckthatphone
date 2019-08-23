@@ -4,7 +4,10 @@ body {
     text-align: center;
     background-image: url(../images/headerbackground.JPG);
     background-attachment: fixed;
+    text-shadow: 0 1px 4px rgba(0,0,0,.15);
+    color: #ffffff;
 }
+
 
 header {
     margin: 0 auto;
