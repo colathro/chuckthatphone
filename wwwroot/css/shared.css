@@ -2,15 +2,17 @@ body {
     font-family: FredokaOne,arial,sans-serif;
     margin: 0 auto;
     text-align: center;
-    background-image: url(../images/headerbackground.JPG);
-    background-attachment: fixed;
     text-shadow: 0 1px 4px rgba(0,0,0,.15);
-    color: #ffffff;
+    color: rgb(78,133, 236);
 }
 
 
 header {
     margin: 0 auto;
+}
+
+#LeaderboardWrapper {
+    margin-bottom: 3vh;
 }
 
 @font-face {
@@ -24,15 +26,46 @@ header {
     font-family: FredokaOne,arial,sans-serif;
     line-height: 1.25em;
     text-shadow: 0 1px 4px rgba(0,0,0,.15);
+    margin-bottom: 5vh;
+}
+
+.LeaderboardSelector {
+    display: inline-block;
+    color: rgb(217, 80, 63);
+    background-color: #ffffff;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
+}
+
+.LeaderboardPage {
+    display: inline-block;
+    color: rgb(217, 80, 63);
+    background-color: #ffffff;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
+}
+
+#LeaderboardPageSpacer {
+    width: 33%;
+    display: inline-block;
+}
+
+#LeaderboardSelectorWrapper {
+    margin-bottom: 5px;
 }
 
 #LogoWrapper h1 {
     margin: 0 auto;
     letter-spacing: 4px;
-    height: 20vw;
     padding-top: 32px;
     font-weight: normal;
-    color: #ffffff;
+    color: rgb(78,133, 236);
 }
 
 #LogoWrapper h2 {
@@ -41,7 +74,7 @@ header {
     height: 10vw;
     padding-bottom: 10px;
     font-weight: normal;
-    color: #ffffff;
+    color: rgba(78,133, 236, .15);
 }
 
 .CenterWrapper {
@@ -72,15 +105,19 @@ header {
 #YeetWrapper {
     /* width: 98%; */
     text-align: center;
+    margin-bottom: 10px;
 }
 
 
 #YeetWrapper div h1 {
-  background-color: rgba(7, 46, 173, 0.5);
-  border-radius: 25%;
+  background-color: #ffffff;
+  border-radius: 5%;
+  color: rgb(217, 80, 63);
   display: inline-block;
+  padding: 6px;
   margin: 0 auto;
   text-align: center;
+  box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
 }
 
 
@@ -93,7 +130,7 @@ header {
   .rolldown-list li {
     margin: 1px;
     border-radius: 4px;
-    color: #ffffff;
+    color: rgb(78,133, 236);
     font-family: FredokaOne,arial,sans-serif;
   }
   
@@ -104,6 +141,7 @@ header {
     animation: rolldown .3s 1;
     transform-origin: 50% 0;
     animation-fill-mode: forwards;
+    box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
   }
 
   .rolldown-list li span {
@@ -111,11 +149,11 @@ header {
   }
   
   .rolldown-list li:nth-child(2n) {
-    background-color: rgba(92, 124, 151, .50);
+    background-color: #ffffff;
   }
   
   .rolldown-list li:nth-child(2n+1) {
-    background-color: rgba(92, 124,167, .50);
+    background-color: #ffffff;
   }
 
   .YeeterName {
@@ -131,6 +169,12 @@ header {
 .YeeterHeight {
     width: 33%;
     display:inline-block;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
   @keyframes rolldown {
