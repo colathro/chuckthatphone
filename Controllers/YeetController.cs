@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using yeetmeto.space.DataAccess;
 using yeetmeto.space.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace yeetmeto.space.Controllers
 {
@@ -21,16 +22,34 @@ namespace yeetmeto.space.Controllers
 
         [Route("top")]
         [HttpGet]
-        public ActionResult<List<Yeet>> GetTop(int count)
+        public ActionResult<List<Yeet>> GetTop(int count, int page)
         {
-            return _context.Yeet.OrderByDescending(y => y.HeightMeters).Take(count).ToList();
+            string sql = @"SELECT * FROM Yeet";
+            if (page >= 1)
+            {
+                sql += $" ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY";
+            }
+            else
+            {
+                throw new ArgumentException("Missing page parameter.");
+            }
+            return _context.Yeet.FromSql(sql).ToList();
         }
 
-        [Route("devicetop")]
+        [Route("topdevice")]
         [HttpGet]
-        public ActionResult<List<Yeet>> GetDeviceTop(int count, string device = "")
+        public ActionResult<List<Yeet>> GetDeviceTop(int count, int page, string device = "")
         {
-            return _context.Yeet.Where(y => y.Device == device).OrderByDescending(y => y.HeightMeters).Take(count).ToList();
+            string sql = $"SELECT * FROM Yeet where Yeet.Device = '{device}'";
+            if (page >= 1)
+            {
+                sql += $" ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY";
+            }
+            else
+            {
+                throw new ArgumentException("Missing page parameter.");
+            }
+            return _context.Yeet.FromSql(sql).ToList();
         }
         
         [HttpPost]
