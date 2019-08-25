@@ -25,8 +25,7 @@ header {
     cursor: pointer; /* Add a pointer on hover */
 }
 
-
-#DataEntry {
+.UserInfoCenter {
     position:fixed;
     width: 300px;
     height: 200px;
@@ -36,6 +35,15 @@ header {
     left: 50%;
     text-align: center;
     background-color: rgb(255,255,255);
+}
+
+#CountDown {
+    display: none;
+}
+
+#CountDownValue {
+    font-size: 10vh;
+    margin-top: 10%;
 }
 
 #DataEntryYeet {

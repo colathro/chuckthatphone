@@ -14,7 +14,7 @@ class Yeeterboard {
 
         // intial log
         this.RequestYeeterboard();
-        
+
         // sets the device
         this.FindDevice();
     }
@@ -38,11 +38,13 @@ class Yeeterboard {
 
     AllTimeClicked() {
         console.log('AllTimeClicked.');
+        this.currentpage = 1;
         this.TopDevice = false;
         this.Refresh();
     }
 
     MyDeviceClicked() {
+        this.currentpage = 1;
         this.TopDevice = true;
         console.log('MyDeviceClicked.');
         this.Refresh();

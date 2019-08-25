@@ -31,9 +31,55 @@ var G = Math.pow(9.807, 2);
 var previousVec = [0, 0, 0];
 
 class DataCapture {
+
+   dataentry = false;
+
    constructor() {
-      document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
-      console.log("In constructor");
+      this.SetupOnClicks();
+   }
+
+   SetupOnClicks () {
+
+      document.getElementById('YeetButton').addEventListener('touchstart', this.DisplayOverlay.bind(this));
+      document.getElementById('DataEntryYeet').addEventListener('touchstart', this.activateCapture.bind(this));
+   }
+
+   DisplayOverlay () {
+      this.ShowOverlay();
+   }
+
+   FetchOverlaySelection () {
+      this.Username = document.getElementById('Username').value;
+
+      this.Insta = document.getElementById('IsInsta').checked;
+      this.Twitter = document.getElementById('IsTwitter').checked;
+      this.Snapchat = document.getElementById('IsSnapchat').checked;
+   }
+
+   ShowOverlay () {
+      document.getElementById('UserInfo').style.display = 'block';
+   }
+
+   HideOverlay () {
+      document.getElementById('UserInfo').style.display = 'none';
+   }
+
+   StartCountdown () {
+      CountDown();
+   }
+
+   ToggleDataEntry () {
+      if (this.dataentry){
+         document.getElementById('CountDown').style.display = 'none';
+         document.getElementById('DataEntry').style.display = 'block';
+         this.dataentry = false;
+      }
+      else {
+         this.dataentry = true;
+         document.getElementById('DataEntry').style.display = 'none';
+         document.getElementById('CountDown').style.display = 'block';
+      }
+
    }
 
    orientation(event) {
@@ -76,11 +122,9 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      if (this.on) {
-         this.on = false;
-
+      this.ToggleDataEntry();
+      this.HideOverlay();
          window.removeEventListener('deviceorientation', this.orientation);
-
          window.removeEventListener('devicemotion', this.motion);
          document.getElementById('height').innerHTML = Math.round(maxPos);
          maxPos = 0;
@@ -88,9 +132,6 @@ class DataCapture {
          vel = 0;
          previousVec = [0, 0, 0];
 
-         console.log("I don't know how to put this in the database.")
-         console.log(this.joinArrayObs(orientationData));
-         console.log(this.joinArrayObs(motionData));
          var xhr = new XMLHttpRequest();
          xhr.open("POST", "/api/yeet", true);
          xhr.setRequestHeader('Content-Type', 'application/json');
@@ -104,22 +145,18 @@ class DataCapture {
                   value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
                }
             }));
-      }
    }
 
    activateCapture() {
-      console.log("Clicked Yeet.")
-      if (!this.on) {
-         this.on = true;
-         motionData = new Array();
-         orientationData = new Array();
-         window.addEventListener('deviceorientation', this.orientation);
+      this.ToggleDataEntry();
+      this.on = true;
+      motionData = new Array();
+      orientationData = new Array();
+      window.addEventListener('deviceorientation', this.orientation);
 
-         window.addEventListener('devicemotion', this.motion);
-      } else {
-         console.log("Done Yeeting.");
-         this.deactivateCapture();
-      }
+      window.addEventListener('devicemotion', this.motion);
+      this.StartCountdown();
+      setTimeout(this.deactivateCapture.bind(this), 10000);
    }
 
    joinArrayObs(ar) {
@@ -129,6 +166,21 @@ class DataCapture {
       }
       return str;
    }
+}
+
+function CountDown () {
+   document.getElementById('CountDownValue').innerText = 10;
+   var x = setInterval(function() {
+      var val = document.getElementById('CountDownValue').innerText;
+
+      if (val <= 1){
+         clearInterval(x);
+      }
+
+      val -= 1;
+
+      document.getElementById('CountDownValue').innerText = val;
+   }, 1000);
 }
 
 dC = new DataCapture();
