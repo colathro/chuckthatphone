@@ -31,10 +31,9 @@ var G = Math.pow(9.807, 2);
 var previousVec = [0, 0, 0];
 
 class DataCapture {
-
-   dataentry = false;
-
    constructor() {
+      this.dataentry = false;
+
       this.SetupOnClicks();
    }
 
