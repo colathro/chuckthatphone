@@ -1,11 +1,11 @@
 class Yeeterboard {
-    topquery = "/api/yeet/top?count=10";
-    topdevicequery = "/api/yeet/topdevice?count=10";
-    currentpage = 1;
-    TopDevice = false;
-    currentdevice = '';
 
     constructor() {
+        this.topquery = "/api/yeet/top?count=10";
+        this.topdevicequery = "/api/yeet/topdevice?count=10";
+        this.currentpage = 1;
+        this.TopDevice = false;
+        this.currentdevice = '';
         // Set Leaderboard div.
         this.setupOnClicks();
 
