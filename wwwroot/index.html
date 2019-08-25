@@ -18,16 +18,16 @@
 
       <div id="LeaderboardWrapper">
          <div id="LeaderboardSelectorWrapper">
-            <div class="LeaderboardSelector">all-time</div>
-            <div class="LeaderboardSelector">my device</div>
-            <div class="LeaderboardSelector">refresh</div>
+            <div class="LeaderboardSelector" id='AllTimeClicked'>all-time</div>
+            <div class="LeaderboardSelector" id='MyDeviceClicked'>my device</div>
+            <div class="LeaderboardSelector" id='RefreshClicked'>refresh</div>
          </div>
          <ul class="rolldown-list" id="myList">
          </ul>
          <div id="LeaderboardPageWrapper">
-            <div class="LeaderboardPage">prev</div>
+            <div class="LeaderboardPage" id='PrevClicked'>prev</div>
             <div id="LeaderboardPageSpacer"></div>
-            <div class="LeaderboardPage">next</div>
+            <div class="LeaderboardPage" id='NextClicked'>next</div>
          </div>
       </div>
       
@@ -57,7 +57,7 @@
                   <br />
                </p>
             </footer>
-      <script src='/js/yeeterboard.js'></script>
+      <script src='/js/YeeterboardController.js'></script>
       <script src="/js/main.js"></script>
 </body>
 

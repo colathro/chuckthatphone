@@ -96,7 +96,7 @@ class DataCapture {
          xhr.setRequestHeader('Content-Type', 'application/json');
          xhr.send(JSON.stringify(
             {
-               device: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5),
+               device: navigator.platform,
                name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5),
                socialmedia: 1,
                heightmeters: 9000.00,
