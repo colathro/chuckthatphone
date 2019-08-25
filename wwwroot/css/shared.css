@@ -178,6 +178,26 @@ footer {
     font-size: 1vh;
 }
 
+.LeaderboardSelector {
+    transition: all .1s linear;
+}
+
+.LeaderboardSelector:active {
+    transform: translateY(3px);
+    cursor: pointer;
+}
+
+.LeaderboardPage {
+    transition: all .1s linear;
+}
+
+.LeaderboardPage:active {
+    transform: translateY(3px);
+    cursor: pointer;
+}
+
+
+
   @keyframes rolldown {
     0% {
       visibility: visible;
