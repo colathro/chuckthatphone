@@ -8,8 +8,14 @@ class Yeeterboard {
     constructor() {
         // Set Leaderboard div.
         this.setupOnClicks();
+
+        // this probablyh isn't needed
         this.setupLeaderboardElement();
+
+        // intial log
         this.RequestYeeterboard();
+        
+        // sets the device
         this.FindDevice();
     }
 

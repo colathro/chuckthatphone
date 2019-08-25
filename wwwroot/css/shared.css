@@ -11,6 +11,45 @@ header {
     margin: 0 auto;
 }
 
+#UserInfo {
+    position: fixed; /* Sit on top of the page content *//* Hidden by default */
+    display: none;
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+
+#DataEntry {
+    position:fixed;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    background-color: rgb(255,255,255);
+}
+
+#DataEntryYeet {
+    border-radius: 5%;
+    color: rgb(217, 80, 63);
+    display: inline-block;
+    padding: 6px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
+    width: 30vw;
+    margin-top: 20px;
+}
+
 #LeaderboardWrapper {
     margin-bottom: 3vh;
 }
