@@ -21,6 +21,9 @@ class DataCapture {
 
       document.getElementById('DataEntryYeet').addEventListener('touchstart', this.DisplayOverlay.bind(this));
       document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
+      document.getElementById('ScoreSubmit').addEventListener('touchstart', this.RejectScore.bind(this));
+      document.getElementById('ScoreReject').addEventListener('touchstart', this.SubmitScore.bind(this));
+
    }
 
    DisplayOverlay() {
@@ -35,6 +38,15 @@ class DataCapture {
       this.Snapchat = document.getElementById('IsSnapchat').checked;
    }
 
+   RejectScore() {
+      this.HideOverlay();
+   }
+
+   SubmitScore() {
+      this.HideScore();
+      this.ShowDataEntry();
+   }
+
    ShowOverlay() {
       document.getElementById('UserInfo').style.display = 'block';
    }
@@ -43,22 +55,36 @@ class DataCapture {
       document.getElementById('UserInfo').style.display = 'none';
    }
 
+   HideCountDown() {
+      document.getElementById('CountDown').style.display = 'none';
+   }
+
+   ShowCountDown() {
+      document.getElementById('CountDown').style.display = 'block';
+   }
+
    StartCountdown() {
       CountDown();
    }
 
-   ToggleDataEntry() {
-      if (this.dataentry) {
-         document.getElementById('CountDown').style.display = 'none';
-         document.getElementById('DataEntry').style.display = 'block';
-         this.dataentry = false;
-      }
-      else {
-         this.dataentry = true;
-         document.getElementById('DataEntry').style.display = 'none';
-         document.getElementById('CountDown').style.display = 'block';
-      }
+   ShowScore() {
+      document.getElementById("Score").style.display = 'block';
+   }
 
+   HideScore() {
+      document.getElementById("Score").style.display = 'none';
+   }
+
+   UpdateScore(score) {
+      document.getElementById("ScoreNumber").innerText = score;
+   }
+
+   ShowDataEntry() {
+      document.getElementById("DataEntry").style.display = 'block';
+   }
+
+   HideDataEntry() {
+      document.getElementById("DataEntry").style.display = 'none';
    }
 
    orientation(event) {
@@ -70,8 +96,9 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      this.ToggleDataEntry();
-      this.HideOverlay();
+      this.HideCountDown();
+      this.UpdateScore(30);
+      this.ShowScore();
       window.removeEventListener('deviceorientation', this.orientation);
       window.removeEventListener('devicemotion', this.motion);
       document.getElementById('height').innerHTML = Math.round(maxPos);
@@ -96,9 +123,8 @@ class DataCapture {
    }
 
    activateCapture() {
+      this.ShowCountDown();
       this.ShowOverlay();
-      this.StartCountdown();
-      this.ToggleDataEntry();
       this.on = true;
       motionData = new Array();
       orientationData = new Array();
@@ -118,19 +144,7 @@ class DataCapture {
    }
 }
 
-<<<<<<< HEAD
-function GetUserAndTags () {
-   username = document.getElementById("Username").value;
-   insta = document.getElementById("IsInsta").checked;
-   twitter = document.getElementById("IsTwitter").checked;
-   snapchat = document.getElementById("IsSnapchat").checked;
-   return [username, insta, twitter, snapchat];
-}
-
-function CountDown () {
-=======
 function CountDown() {
->>>>>>> 88b5cd5c2128f76d40c3f1e867f335f877550e59
    document.getElementById('CountDownValue').innerText = 10;
    var x = setInterval(function () {
       var val = document.getElementById('CountDownValue').innerText;
@@ -146,56 +160,3 @@ function CountDown() {
 }
 
 dC = new DataCapture();
-
-
-// if (!('ondeviceorientation' in window)) {
-//    document.getElementById('do-unsupported').classList.remove('hidden');
-// } else {
-//    document.getElementById('do-info').classList.remove('hidden');
-
-//    window.addEventListener('deviceorientation', function (event) {
-//       document.getElementById('cube').style.webkitTransform =
-//          document.getElementById('cube').style.transform =
-//          'rotateX(' + event.beta + 'deg) ' +
-//          'rotateY(' + event.gamma + 'deg) ' +
-//          'rotateZ(' + event.alpha + 'deg)';
-
-//       document.getElementById('beta').innerHTML = Math.round(event.beta);
-//       document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-//       document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-//       document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
-//    });
-// }
-
-// if (!('ondevicemotion' in window)) {
-//    document.getElementById('dm-unsupported').classList.remove('hidden');
-// } else {
-//    document.getElementById('dm-info').classList.remove('hidden');
-
-//    window.addEventListener('devicemotion', function (event) {
-//       document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
-//       document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
-//       document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
-
-//       document.getElementById('acceleration-including-gravity-x').innerHTML =
-//          Math.round(event.accelerationIncludingGravity.x);
-//       document.getElementById('acceleration-including-gravity-y').innerHTML =
-//          Math.round(event.accelerationIncludingGravity.y);
-//       document.getElementById('acceleration-including-gravity-z').innerHTML =
-//          Math.round(event.accelerationIncludingGravity.z);
-
-//       document.getElementById('rotation-rate-beta').innerHTML = Math.round(event.rotationRate.beta);
-//       document.getElementById('rotation-rate-gamma').innerHTML = Math.round(event.rotationRate.gamma);
-//       document.getElementById('rotation-rate-alpha').innerHTML = Math.round(event.rotationRate.alpha);
-
-//       document.getElementById('interval').innerHTML = event.interval;
-//    });
-// }
-
-// if (!('oncompassneedscalibration' in window)) {
-//    document.getElementById('cnc-unsupported').classList.remove('hidden');
-// } else {
-//    window.addEventListener('compassneedscalibration', function (event) {
-//       alert('Compass needs calibrating! Wave your device in a figure-eight motion');
-//    });
-// }
