@@ -118,12 +118,8 @@ function RenderYeeterboard(arr) {
         var heightSpan = document.createElement('span');
         heightSpan.innerText = element.heightMeters;
         heightSpan.className = 'YeeterHeight';
-        var deviceSpan = document.createElement('span');
-        deviceSpan.innerText = element.device;
-        deviceSpan.className = 'YeeterDevice';
         node.appendChild(nameSpan);
         node.appendChild(heightSpan);
-        node.appendChild(deviceSpan);
         node.style.cssText = 'display: none'
         document.getElementById('myList').appendChild(node);
      });
