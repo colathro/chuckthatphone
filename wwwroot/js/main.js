@@ -145,7 +145,7 @@ class DataCapture {
 }
 
 function CountDown() {
-   document.getElementById('CountDownValue').innerText = 10;
+   document.getElementById('CountDownValue').innerText = 2;
    var x = setInterval(function () {
       var val = document.getElementById('CountDownValue').innerText;
 
