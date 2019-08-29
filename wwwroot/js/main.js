@@ -32,15 +32,15 @@ var previousVec = [0, 0, 0];
 
 class DataCapture {
    constructor() {
-      this.dataentry = false;
+      this.dataentry = true;
 
       this.SetupOnClicks();
    }
 
    SetupOnClicks () {
 
-      document.getElementById('YeetButton').addEventListener('touchstart', this.DisplayOverlay.bind(this));
-      document.getElementById('DataEntryYeet').addEventListener('touchstart', this.activateCapture.bind(this));
+      document.getElementById('DataEntryYeet').addEventListener('touchstart', this.DisplayOverlay.bind(this));
+      document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
    }
 
    DisplayOverlay () {
@@ -147,6 +147,8 @@ class DataCapture {
    }
 
    activateCapture() {
+      this.ShowOverlay();
+      this.StartCountdown();
       this.ToggleDataEntry();
       this.on = true;
       motionData = new Array();
@@ -165,6 +167,14 @@ class DataCapture {
       }
       return str;
    }
+}
+
+function GetUserAndTags () {
+   username = document.getElementById("Username").value;
+   insta = document.getElementById("IsInsta").checked;
+   twitter = document.getElementById("IsTwitter").checked;
+   snapchat = document.getElementById("IsSnapchat").checked;
+   return [username, insta, twitter, snapchat];
 }
 
 function CountDown () {
