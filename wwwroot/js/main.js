@@ -140,6 +140,7 @@ class DataCapture {
       for (var i = 0, len = ar.length; i < len; i++) {
          str += ar[i].a + ',';
       }
+      console.log(str);
       return str;
    }
 }
