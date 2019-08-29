@@ -16,7 +16,7 @@ class OrientationInstance {
 
 class MotionInstance {
     constructor(accelX, accelY, accelZ) {//, gravX, gravY, gravZ, pos) {
-        this.a = Math.abs(accelX) + Math.abs(accelY) + Math.abs(accelZ);
+        this.a = Math.pow(Math.abs(accelX), 2) + Math.pow(Math.abs(accelY), 2) + Math.pow(Math.abs(accelZ), 2);
         this.time = Date.now();
         document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
         document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
