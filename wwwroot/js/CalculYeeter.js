@@ -1,3 +1,5 @@
+
+
 class OrientationInstance {
     constructor(beta, gamma, alpha) {
         this.a = beta;
@@ -13,18 +15,14 @@ class OrientationInstance {
 }
 
 class MotionInstance {
-    constructor(accelX, accelY, accelZ, gravX, gravY, gravZ, pos) {
-        this.a = accelX;
-        this.b = accelY;
-        this.c = accelZ;
-        this.gravX = gravX;
-        this.gravY = gravY;
-        this.gravZ = gravZ;
-        this.pos = pos;
+    constructor(accelX, accelY, accelZ) {//, gravX, gravY, gravZ, pos) {
+        this.a = Math.abs(accelX) + Math.abs(accelY) + Math.abs(accelZ);
         this.time = Date.now();
         document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
         document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
         document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
+
+
 
 
         // document.getElementById('grav-x').innerHTML = Math.round(event.accelerationIncludingGravity.x);
@@ -40,13 +38,13 @@ class MotionInstance {
         // if (xG + yG + zG > G - 2 && xG + yG + zG < G + 2) {
         //    previousVec = [xG / G, yG / G, zG / G];
         // }
-        var A = event.acceleration.x * previousVec[0] + event.acceleration.y * previousVec[1] + event.acceleration.z * previousVec[2];
-        A = A * event.interval / 1000;
-        vel += A;
-        pos += vel;
-        if (pos > maxPos) {
-            maxPos = pos;
-        }
-        document.getElementById('height').innerHTML = Math.round(pos);
+        // var A = event.acceleration.x * previousVec[0] + event.acceleration.y * previousVec[1] + event.acceleration.z * previousVec[2];
+        // A = A * event.interval / 1000;
+        // vel += A;
+        // pos += vel;
+        // if (pos > maxPos) {
+        //     maxPos = pos;
+        // }
+        //document.getElementById('height').innerHTML = Math.round(pos);
     }
 }
