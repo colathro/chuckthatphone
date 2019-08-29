@@ -18,11 +18,11 @@ class DataCapture {
    }
 
    SetupOnClicks() {
-
+      document.getElementById('UserInfo').addEventListener('touchstart', this.HideOverlay.bind(this));
       document.getElementById('DataEntryYeet').addEventListener('touchstart', this.DisplayOverlay.bind(this));
       document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
-      document.getElementById('ScoreSubmit').addEventListener('touchstart', this.RejectScore.bind(this));
-      document.getElementById('ScoreReject').addEventListener('touchstart', this.SubmitScore.bind(this));
+      document.getElementById('ScoreSubmit').addEventListener('touchstart', this.SubmitScore.bind(this));
+      document.getElementById('ScoreReject').addEventListener('touchstart', this.RejectScore.bind(this));
 
    }
 
@@ -123,6 +123,8 @@ class DataCapture {
    }
 
    activateCapture() {
+      this.HideScore();
+      this.HideDataEntry();
       this.ShowCountDown();
       this.ShowOverlay();
       this.on = true;
