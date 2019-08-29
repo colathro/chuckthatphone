@@ -88,7 +88,7 @@ class DataCapture {
    }
 
    orientation(event) {
-      orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
+      //orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
    }
 
    motion(event) {
@@ -138,7 +138,7 @@ class DataCapture {
    joinArrayObs(ar) {
       var str = '';
       for (var i = 0, len = ar.length; i < len; i++) {
-         str += '{' + ar[i].a + ',' + ar[i].b + ',' + ar[i].c + ',' + ar[i].gravX + ',' + ar[i].gravY + ',' + ar[i].gravZ + ',' + ar[i].time + ',' + ar[i].pos + '},'
+         str += ar[i].a + ',';
       }
       return str;
    }
