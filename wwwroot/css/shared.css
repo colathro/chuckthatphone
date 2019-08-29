@@ -38,6 +38,10 @@ header {
 }
 
 #CountDown {
+    display: block;
+}
+
+#DataEntry {
     display: none;
 }
 
@@ -142,6 +146,10 @@ header {
     transition: all .1s linear;
     width: 30vw;
     border-radius: 25%;
+}
+
+#Score {
+    display: none;
 }
 
 #YeetButton:active {

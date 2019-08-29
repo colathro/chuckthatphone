@@ -22,34 +22,45 @@ namespace yeetmeto.space.Controllers
 
         [Route("top")]
         [HttpGet]
+        //public ActionResult<List<Yeet>> GetTop(int count, int page)
+        //{
+        //    string sql = @"SELECT * FROM Yeet";
+        //    if (page >= 1)
+        //    {
+        //        sql += $" ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY";
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentException("Missing page parameter.");
+        //    }
+        //    return _context.Yeet.FromSql(sql).ToList();
+        //}
+
         public ActionResult<List<Yeet>> GetTop(int count, int page)
         {
-            string sql = @"SELECT * FROM Yeet";
             if (page >= 1)
             {
-                sql += $" ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY";
+                return _context.Yeet.FromSql($"SELECT * FROM Yeet ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
             }
             else
             {
                 throw new ArgumentException("Missing page parameter.");
             }
-            return _context.Yeet.FromSql(sql).ToList();
         }
 
         [Route("topdevice")]
         [HttpGet]
         public ActionResult<List<Yeet>> GetDeviceTop(int count, int page, string device = "")
-        {
-            string sql = $"SELECT * FROM Yeet where Yeet.Device = '{device}'";
+        {        
             if (page >= 1)
             {
-                sql += $" ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY";
+                return _context.Yeet
+                    .FromSql($"SELECT * FROM Yeet where Yeet.Device = '{device}' ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
             }
             else
             {
                 throw new ArgumentException("Missing page parameter.");
             }
-            return _context.Yeet.FromSql(sql).ToList();
         }
         
         [HttpPost]
