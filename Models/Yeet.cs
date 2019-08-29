@@ -11,7 +11,11 @@ namespace yeetmeto.space.Models
 
         public YeetDetail YeetDetail { get; set; }
 
-        public int SocialMedia { get; set; }
+        public Boolean Twitter { get; set; }
+
+        public Boolean Instagram {get; set; }
+
+        public Boolean Snapchat { get; set; }
 
         [MaxLength(15)]
         public string Name { get; set; }

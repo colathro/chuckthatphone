@@ -114,7 +114,9 @@ class DataCapture {
          {
             device: navigator.platform,
             name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5),
-            socialmedia: 1,
+            Instagram: true,
+            Snapchat: true,
+            Twitter: true,
             heightmeters: 9000.00,
             yeetdetail: {
                value: 'Motion: ' + this.joinArrayObs(motionData)
