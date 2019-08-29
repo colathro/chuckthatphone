@@ -132,7 +132,7 @@ class DataCapture {
 
       window.addEventListener('devicemotion', this.motion);
       this.StartCountdown();
-      setTimeout(this.deactivateCapture.bind(this), 10000);
+      setTimeout(this.deactivateCapture.bind(this), 2000);
    }
 
    joinArrayObs(ar) {
