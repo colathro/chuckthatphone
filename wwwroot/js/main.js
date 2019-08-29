@@ -92,7 +92,7 @@ class DataCapture {
    }
 
    motion(event) {
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, xG, yG, zG, pos));
+      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z));
    }
 
    deactivateCapture() {
@@ -117,7 +117,7 @@ class DataCapture {
             socialmedia: 1,
             heightmeters: 9000.00,
             yeetdetail: {
-               value: 'Orientation: ' + this.joinArrayObs(orientationData) + ' - Motion: ' + this.joinArrayObs(motionData)
+               value: 'Motion: ' + this.joinArrayObs(motionData)
             }
          }));
    }
