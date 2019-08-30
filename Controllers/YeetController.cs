@@ -55,7 +55,7 @@ namespace yeetmeto.space.Controllers
             if (page >= 1)
             {
                 return _context.Yeet
-                    .FromSql($"SELECT * FROM Yeet where Yeet.Device = '{device}' ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
+                    .FromSql($"SELECT * FROM Yeet where Yeet.Device = {device} ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
             }
             else
             {
