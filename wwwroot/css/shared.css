@@ -7,7 +7,7 @@ body {
     background-attachment: fixed;
     background-position: center; 
     text-shadow: 0 1px 4px rgba(0,0,0,.15);
-    color: rgb(78,133, 236);
+    color: rgb(255, 255, 255);
 }
 
 
@@ -56,12 +56,12 @@ header {
 
 #DataEntryYeet {
     border-radius: 5%;
-    color: rgb(217, 80, 63);
+    color: rgb(255, 255, 255);
     display: inline-block;
     padding: 6px;
     margin: 0 auto;
     text-align: center;
-    box-shadow: rgba(217, 80, 63, 0.1) 2px 3px 9px;
+    box-shadow: rgba(217, 80, 63, 0.1) 1px 2px 3px;
     width: 30vw;
     margin-top: 20px;
 }
@@ -86,24 +86,24 @@ header {
 
 .LeaderboardSelector {
     display: inline-block;
-    color: rgb(217, 80, 63);
-    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+    background-color: rgba(54, 161, 248, 0.5);
     margin-left: 5px;
     margin-right: 5px;
     padding: 5px;
     border-radius: 2px;
-    box-shadow: rgba(217, 80, 63, 1) 2px 3px 9px;
+    box-shadow: rgba(255, 255, 255, .5) 0px 0px 9px;
 }
 
 .LeaderboardPage {
     display: inline-block;
-    color: rgb(217, 80, 63);
-    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+    background-color: rgba(14, 139, 241, 0.5);
     margin-left: 5px;
     margin-right: 5px;
     padding: 5px;
     border-radius: 2px;
-    box-shadow: rgba(217, 80, 63, 1) 2px 3px 9px;
+    box-shadow: rgba(255, 255, 255, .5) 0px 0px 9px;
 }
 
 #LeaderboardPageSpacer {
@@ -120,7 +120,8 @@ header {
     letter-spacing: 4px;
     padding-top: 32px;
     font-weight: normal;
-    color: rgb(78,133, 236);
+    color: rgb(255, 255, 255);
+    text-shadow: rgba(255, 255, 255, .5) 0px 0px 9px; 
 }
 
 #LogoWrapper h2 {
@@ -129,7 +130,7 @@ header {
     height: 10vw;
     padding-bottom: 10px;
     font-weight: normal;
-    color: rgba(78,133, 236, .15);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .CenterWrapper {
@@ -169,28 +170,30 @@ header {
 
 
 #YeetWrapper div h1 {
-  background-color: #ffffff;
+  background-color: rgba(14, 139, 241, 0.5);
   border-radius: 5%;
-  color: rgb(217, 80, 63);
+  color: rgb(255, 255, 255);
   display: inline-block;
   padding: 6px;
   margin: 0 auto;
   text-align: center;
-  box-shadow: rgba(217, 80, 63, 1) 2px 3px 9px;
+  box-shadow: rgba(255, 255, 255, .5) 0px 0px 9px;
 }
 
 
-    .rolldown-list {
+  .rolldown-list {
         list-style: none;
         padding: 0;
         margin: 0;
+        margin-bottom: 5px;
     }
   
   .rolldown-list li {
     margin: 1px;
     border-radius: 4px;
-    color: rgb(78,133, 236);
+    color: rgb(255, 255, 255);
     font-family: FredokaOne,arial,sans-serif;
+    background-color: rgba(100, 100, 100, 0.15);
   }
   
   .rolldown-list li {
@@ -201,6 +204,7 @@ header {
     transform-origin: 50% 0;
     animation-fill-mode: forwards;
     box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
+    background-color: rgb(100, 100, 100);
   }
 
   .rolldown-list li span {
@@ -208,11 +212,11 @@ header {
   }
   
   .rolldown-list li:nth-child(2n) {
-    background-color: #ffffff;
+    background-color: rgba(100, 100, 100, 0.15);
   }
   
   .rolldown-list li:nth-child(2n+1) {
-    background-color: #ffffff;
+    background-color: rgba(100, 100, 100, 0.30);
   }
 
   .YeeterName {
