@@ -111,7 +111,6 @@ class Yeeterboard {
 function RenderYeeterboard(arr) {
     arr.forEach(element => {
         var node = document.createElement("li");
-
         var nameSpan = document.createElement('span');
         nameSpan.innerText = element.name;
         nameSpan.className = 'YeeterName';
