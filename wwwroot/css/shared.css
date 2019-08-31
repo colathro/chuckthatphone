@@ -97,6 +97,7 @@ header {
 
 #myList {
     vertical-align: middle;
+    height: 40vh;
 }
 
 @font-face {
