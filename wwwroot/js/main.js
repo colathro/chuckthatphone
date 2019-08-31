@@ -101,7 +101,7 @@ class DataCapture {
       this.ShowScore();
       window.removeEventListener('deviceorientation', this.orientation);
       window.removeEventListener('devicemotion', this.motion);
-      document.getElementById('height').innerHTML = Math.round(maxPos);
+      document.getElementById('ScoreNumber').innerHTML = Math.round(maxPos);
       maxPos = 0;
       pos = 0;
       vel = 0;

@@ -29,6 +29,8 @@ header {
 }
 
 .UserInfoCenter {
+    background-color: rgb(12, 88, 150);
+    border-radius: 10px;
     position:fixed;
     width: 300px;
     height: 200px;
@@ -37,7 +39,6 @@ header {
     top: 50%;
     left: 50%;
     text-align: center;
-    background-color: rgb(255,255,255);
 }
 
 #CountDown {
@@ -69,6 +70,15 @@ header {
     margin-bottom: 3vh;
 }
 
+.LeaderboardIcon {
+    height: 2vh;
+    width: 2vh;
+}
+
+#myList {
+    vertical-align: middle;
+}
+
 @font-face {
     font-family: FredokaOne;
     font-weight: 600;
@@ -96,6 +106,7 @@ header {
 
 .LeaderboardPage {
     display: inline-block;
+    width: 10vh;
     color: rgb(255, 255, 255);
     background-color: rgba(14, 139, 241, 0.5);
     margin-left: 5px;
@@ -179,15 +190,11 @@ header {
   box-shadow: rgba(255, 255, 255, .5) 0px 0px 9px;
 }
 
-#myList {
-    height: 30vh;
-}
-
   .rolldown-list {
         list-style: none;
         padding: 0;
         margin: 0;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
   
   .rolldown-list li {

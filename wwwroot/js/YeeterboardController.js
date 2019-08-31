@@ -111,6 +111,24 @@ class Yeeterboard {
 function RenderYeeterboard(arr) {
     arr.forEach(element => {
         var node = document.createElement("li");
+        if (element.instagram) {
+            var instagram = document.createElement('img');
+            instagram.className = 'LeaderboardIcon'
+            instagram.src = '../images/Insta.png';
+            node.appendChild(instagram);
+        }
+        if (element.snapchat){
+            var snapchat = document.createElement('img');
+            snapchat.className = 'LeaderboardIcon'
+            snapchat.src = '../images/snapchat.png';
+            node.appendChild(snapchat);
+        }
+        if (element.twitter){
+            var twitter = document.createElement('img');
+            twitter.className = 'LeaderboardIcon'
+            twitter.src = '../images/twitter.png';
+            node.appendChild(twitter);
+        }
         var nameSpan = document.createElement('span');
         nameSpan.innerText = element.name;
         nameSpan.className = 'YeeterName';
