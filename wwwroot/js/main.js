@@ -2,13 +2,11 @@
 
 
 var motionData = new Array();
-var orientationData = new Array();
 var on = false;
-var maxPos = 0;
-var pos = 0;
-var vel = 0;
-var G = Math.pow(9.807, 2);
-var previousVec = [0, 0, 0];
+var G = 16.087; //1/2 32.174 ft/s2
+var thisTime = 0;
+var maxHangTime = 0;
+var falling = false;
 
 class DataCapture {
    constructor() {
@@ -88,25 +86,33 @@ class DataCapture {
       document.getElementById("DataEntry").style.display = 'none';
    }
 
-   orientation(event) {
-      //orientationData.push(new OrientationInstance(Math.round(event.beta), Math.round(event.gamma), Math.round(event.alpha)));
-   }
-
    motion(event) {
-      motionData.push(new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z));
+      var x = new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z);
+      if (!falling) {
+         if (x.a >= 9 && x.a <= 10) {
+            falling = true;
+            thisTime = x.time;
+         }
+      } else {
+         if (x.a < 9 || x.a > 10) {
+            falling = false;
+            if (x.time - thisTime > maxHangTime) {
+               maxHangTime = x.time - thisTime;
+            }
+         }
+      }
+      motionData.push(x);
+
    }
 
    deactivateCapture() {
+      var height = G * Math.pow(maxHangTime * 1000, 2);
       this.HideCountDown();
-      this.UpdateScore(30);
+      this.UpdateScore(height);
       this.ShowScore();
       window.removeEventListener('deviceorientation', this.orientation);
       window.removeEventListener('devicemotion', this.motion);
       document.getElementById('ScoreNumber').innerHTML = Math.round(maxPos);
-      maxPos = 0;
-      pos = 0;
-      vel = 0;
-      previousVec = [0, 0, 0];
 
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "/api/yeet", true);
@@ -118,7 +124,7 @@ class DataCapture {
             Instagram: true,
             Snapchat: true,
             Twitter: true,
-            heightmeters: 9000.00,
+            heightmeters: height,
             yeetdetail: {
                value: 'Motion: ' + this.joinArrayObs(motionData)
             }
@@ -132,7 +138,6 @@ class DataCapture {
       this.ShowOverlay();
       this.on = true;
       motionData = new Array();
-      orientationData = new Array();
       window.addEventListener('deviceorientation', this.orientation);
 
       window.addEventListener('devicemotion', this.motion);
