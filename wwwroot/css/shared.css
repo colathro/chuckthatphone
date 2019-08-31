@@ -179,6 +179,9 @@ header {
   box-shadow: rgba(255, 255, 255, .5) 0px 0px 9px;
 }
 
+#myList {
+    height: 30vh;
+}
 
   .rolldown-list {
         list-style: none;
