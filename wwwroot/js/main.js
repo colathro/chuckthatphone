@@ -18,7 +18,7 @@ class DataCapture {
    }
 
    SetupOnClicks() {
-      document.getElementById('UserInfo').addEventListener('touchstart', this.HideOverlay.bind(this));
+      //document.getElementById('UserInfo').addEventListener('touchstart', this.HideOverlay.bind(this));
       document.getElementById('DataEntryYeet').addEventListener('touchstart', this.DisplayOverlay.bind(this));
       document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
       document.getElementById('ScoreSubmit').addEventListener('touchstart', this.SubmitScore.bind(this));
@@ -44,6 +44,7 @@ class DataCapture {
 
    SubmitScore() {
       this.HideScore();
+      this.HideCountDown();
       this.ShowDataEntry();
    }
 

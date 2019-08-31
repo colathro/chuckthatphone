@@ -55,14 +55,14 @@ header {
 }
 
 #DataEntryYeet {
-    border-radius: 5%;
-    color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: rgb(12, 88, 150);
     display: inline-block;
     padding: 6px;
     margin: 0 auto;
     text-align: center;
     box-shadow: rgba(217, 80, 63, 0.1) 1px 2px 3px;
-    width: 30vw;
     margin-top: 20px;
 }
 
@@ -70,9 +70,29 @@ header {
     margin-bottom: 3vh;
 }
 
+.SocialMedia {
+    display: inline-block;
+}
+
+#SocialMediaTag {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.SocialMediaIcon {
+    height: 3vh;
+    width: 3vh;
+    margin-right: 5px;
+}
+
+.SocialMediaCheckbox {
+
+}
+
 .LeaderboardIcon {
     height: 2vh;
     width: 2vh;
+    margin-right: 3px;
 }
 
 #myList {
