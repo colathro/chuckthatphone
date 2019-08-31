@@ -110,7 +110,6 @@ class DataCapture {
       this.HideCountDown();
       this.UpdateScore(height);
       this.ShowScore();
-      window.removeEventListener('deviceorientation', this.orientation);
       window.removeEventListener('devicemotion', this.motion);
       document.getElementById('ScoreNumber').innerHTML = Math.round(height);
 
@@ -138,8 +137,6 @@ class DataCapture {
       this.ShowOverlay();
       this.on = true;
       motionData = new Array();
-      window.addEventListener('deviceorientation', this.orientation);
-
       window.addEventListener('devicemotion', this.motion);
       this.StartCountdown();
       setTimeout(this.deactivateCapture.bind(this), 2000);
