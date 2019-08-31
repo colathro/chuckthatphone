@@ -112,7 +112,7 @@ class DataCapture {
       this.ShowScore();
       window.removeEventListener('deviceorientation', this.orientation);
       window.removeEventListener('devicemotion', this.motion);
-      document.getElementById('ScoreNumber').innerHTML = Math.round(maxPos);
+      document.getElementById('ScoreNumber').innerHTML = Math.round(height);
 
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "/api/yeet", true);
