@@ -50,7 +50,12 @@ header {
 
 #CountDownValue {
     font-size: 10vh;
-    margin-top: 10%;
+    margin-top: 5vh;
+}
+
+#ThrowNow {
+    font-size: 5vh;
+    margin-top: 3vh;
 }
 
 #DataEntryYeet {
