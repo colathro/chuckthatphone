@@ -90,8 +90,8 @@ header {
 }
 
 .LeaderboardIcon {
-    height: 2vh;
-    width: 2vh;
+    height: 2.5vh;
+    width: 2.5vh;
     margin-right: 3px;
 }
 
@@ -236,10 +236,6 @@ header {
     box-shadow: rgba(32,33,36,0.1) 2px 3px 9px;
     background-color: rgb(100, 100, 100);
   }
-
-  .rolldown-list li span {
-      width: 33%;
-  }
   
   .rolldown-list li:nth-child(2n) {
     background-color: rgba(100, 100, 100, 0.15);
@@ -250,17 +246,13 @@ header {
   }
 
   .YeeterName {
-    width: 33%;
+    margin-left: 10px;
     display:inline-block;
 }
 
-.YeeterDevice {
-    width: 33%;
-    display:inline-block;
-}
 
 .YeeterHeight {
-    width: 33%;
+    margin-left: 10px;
     display:inline-block;
 }
 

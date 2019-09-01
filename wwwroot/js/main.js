@@ -17,7 +17,7 @@ class DataCapture {
 
    SetupOnClicks() {
       //document.getElementById('UserInfo').addEventListener('touchstart', this.HideOverlay.bind(this));
-      document.getElementById('DataEntryYeet').addEventListener('touchstart', this.DisplayOverlay.bind(this));
+      document.getElementById('DataEntryYeet').addEventListener('touchstart', this.PostYeet.bind(this));
       document.getElementById('YeetButton').addEventListener('touchstart', this.activateCapture.bind(this));
       document.getElementById('ScoreSubmit').addEventListener('touchstart', this.SubmitScore.bind(this));
       document.getElementById('ScoreReject').addEventListener('touchstart', this.RejectScore.bind(this));
@@ -44,6 +44,12 @@ class DataCapture {
       this.HideScore();
       this.HideCountDown();
       this.ShowDataEntry();
+   }
+
+   PostYeet() {
+      this.sendYeet();
+      this.HideOverlay();
+      Leaderboard.Refresh();
    }
 
    ShowOverlay() {
@@ -107,23 +113,26 @@ class DataCapture {
 
    deactivateCapture() {
       var height = G * Math.pow(maxHangTime * 1000, 2);
+      this.height = height;
       this.HideCountDown();
       this.UpdateScore(height);
       this.ShowScore();
       window.removeEventListener('devicemotion', this.motion);
       document.getElementById('ScoreNumber').innerHTML = Math.round(height);
+   }
 
+   sendYeet() {
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "/api/yeet", true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(
          {
             device: navigator.platform,
-            name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5),
-            Instagram: true,
-            Snapchat: true,
-            Twitter: true,
-            heightmeters: height,
+            name: document.getElementById('Username').value,
+            Instagram: document.getElementById('Insta').checked,
+            Snapchat: document.getElementById('Snap').checked,
+            Twitter: document.getElementById('Twitter').checked,
+            heightmeters: this.height,
             yeetdetail: {
                value: 'Motion: ' + this.joinArrayObs(motionData)
             }

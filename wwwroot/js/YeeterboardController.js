@@ -133,7 +133,7 @@ function RenderYeeterboard(arr) {
         nameSpan.innerText = element.name;
         nameSpan.className = 'YeeterName';
         var heightSpan = document.createElement('span');
-        heightSpan.innerText = element.heightMeters;
+        heightSpan.innerText = element.heightMeters + ' feet';
         heightSpan.className = 'YeeterHeight';
         node.appendChild(nameSpan);
         node.appendChild(heightSpan);
