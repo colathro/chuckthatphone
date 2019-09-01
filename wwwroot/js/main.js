@@ -132,7 +132,7 @@ class DataCapture {
             Instagram: document.getElementById('Insta').checked,
             Snapchat: document.getElementById('Snap').checked,
             Twitter: document.getElementById('Twitter').checked,
-            heightmeters: this.height,
+            heightmeters: height,
             yeetdetail: {
                value: 'Motion: ' + this.joinArrayObs(motionData)
             }
