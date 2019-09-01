@@ -118,7 +118,7 @@ class DataCapture {
       this.UpdateScore(height);
       this.ShowScore();
       window.removeEventListener('devicemotion', this.motion);
-      document.getElementById('ScoreNumber').innerText = this.height + ' Feet';
+      document.getElementById('ScoreNumber').innerText = height + ' Feet';
    }
 
    sendYeet() {
