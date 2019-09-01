@@ -22,25 +22,11 @@ namespace yeetmeto.space.Controllers
 
         [Route("top")]
         [HttpGet]
-        //public ActionResult<List<Yeet>> GetTop(int count, int page)
-        //{
-        //    string sql = @"SELECT * FROM Yeet";
-        //    if (page >= 1)
-        //    {
-        //        sql += $" ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY";
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentException("Missing page parameter.");
-        //    }
-        //    return _context.Yeet.FromSql(sql).ToList();
-        //}
-
         public ActionResult<List<Yeet>> GetTop(int count, int page)
         {
             if (page >= 1)
             {
-                return _context.Yeet.FromSql($"SELECT * FROM Yeet ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
+                return _context.Yeet.FromSql($"SELECT * FROM Yeet ORDER BY Yeet.HeightMeters DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
             }
             else
             {
@@ -55,7 +41,7 @@ namespace yeetmeto.space.Controllers
             if (page >= 1)
             {
                 return _context.Yeet
-                    .FromSql($"SELECT * FROM Yeet where Yeet.Device = {device} ORDER BY Yeet.YeetDate DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
+                    .FromSql($"SELECT * FROM Yeet where Yeet.Device = {device} ORDER BY Yeet.HeightMeters DESC OFFSET {count} * ({page}  - 1) ROWS FETCH NEXT {count} ROWS ONLY").ToList();
             }
             else
             {
