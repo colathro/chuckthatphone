@@ -6,10 +6,6 @@ class OrientationInstance {
         this.b = gamma;
         this.c = alpha;
         this.time = Date.now();
-
-        document.getElementById('grav-x').innerHTML = Math.round(event.beta);
-        document.getElementById('grav-y').innerHTML = Math.round(event.gamma);
-        document.getElementById('grav-z').innerHTML = Math.round(event.alpha);
         previousVec = [event.beta, event.gamma, event.alpha];
     }
 }
@@ -18,10 +14,6 @@ class MotionInstance {
     constructor(accelX, accelY, accelZ) {//, gravX, gravY, gravZ, pos) {
         this.a = Math.pow(Math.abs(accelX), 2) + Math.pow(Math.abs(accelY), 2) + Math.pow(Math.abs(accelZ), 2);
         this.time = Date.now();
-        document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
-        document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
-        document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
-
 
 
 

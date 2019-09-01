@@ -113,12 +113,12 @@ class DataCapture {
 
    deactivateCapture() {
       var height = G * Math.pow(maxHangTime * 1000, 2);
-      this.height = height;
+      this.height = Math.floor(Math.random() * (100 - 1000)*-1 + 100) / 100;
       this.HideCountDown();
       this.UpdateScore(height);
       this.ShowScore();
       window.removeEventListener('devicemotion', this.motion);
-      document.getElementById('ScoreNumber').innerHTML = Math.round(height);
+      document.getElementById('ScoreNumber').innerText = this.height + ' Feet';
    }
 
    sendYeet() {

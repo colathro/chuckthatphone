@@ -188,6 +188,28 @@ header {
     display: none;
 }
 
+#ScoreContainer {
+    margin-top: 4vh;
+}
+
+#ScoreNumber {
+    font-size: 6vh;
+    margin-top: 2vh;
+}
+
+#NiceThrow {
+    font-size: 5vh;
+}
+
+.ScoreButton {
+    border-style: solid;
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 5vh;
+    margin-left: 3vh;
+    margin-right: 3vh;
+}
+
 #YeetButton:active {
     transform: translateY(3px);
     cursor: pointer;
@@ -253,7 +275,6 @@ header {
 
 .YeeterHeight {
     margin-left: 10px;
-    display:inline-block;
 }
 
 footer {
