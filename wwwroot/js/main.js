@@ -112,13 +112,12 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      var height = G * Math.pow(maxHangTime * 1000, 2);
-      this.height = Math.floor(Math.random() * (100 - 1000)*-1 + 100) / 100;
+      this.height = G * Math.pow(maxHangTime * 1000, 2);
       this.HideCountDown();
-      this.UpdateScore(height);
+      this.UpdateScore(this.height);
       this.ShowScore();
       window.removeEventListener('devicemotion', this.motion);
-      document.getElementById('ScoreNumber').innerText = height + ' Feet';
+      document.getElementById('ScoreNumber').innerText = this.height + ' Feet';
    }
 
    sendYeet() {
@@ -132,7 +131,7 @@ class DataCapture {
             Instagram: document.getElementById('Insta').checked,
             Snapchat: document.getElementById('Snap').checked,
             Twitter: document.getElementById('Twitter').checked,
-            heightmeters: height,
+            heightmeters: this.height,
             yeetdetail: {
                value: 'Motion: ' + this.joinArrayObs(motionData)
             }
