@@ -111,7 +111,7 @@ class DataCapture {
       this.HideCountDown();
       this.UpdateScore(this.height);
       this.ShowScore();
-      window.removeEventListener('devicemotion', this.motion.bind(this));
+      window.removeEventListener('devicemotion', this.motion);
    }
 
    sendYeet() {
