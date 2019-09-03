@@ -93,17 +93,18 @@ class DataCapture {
    }
 
    motion(event) {
-      var x = new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z);
+      var x = new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.interval);
       if (!this.falling) {
-         if (x.a >= 9 && x.a <= 10) {
+         if (x.a >= 9 && x.a <= 11) {
             this.falling = true;
-            this.thisTime = x.time;
+            this.thisTime += x.interval;
          }
       } else {
-         if (x.a < 9 || x.a > 10) {
+         if (x.a < 9 || x.a > 11) {
             this.falling = false;
-            if (x.time - this.thisTime > this.maxHangTime) {
-               this.maxHangTime = x.time - this.thisTime;
+            if (this.thisTime > this.maxHangTime) {
+               this.maxHangTime = this.thisTime;
+               this.thisTime = 0;
             }
          }
       }
