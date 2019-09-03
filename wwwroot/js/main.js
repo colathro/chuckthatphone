@@ -113,7 +113,7 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      this.height = G * Math.pow(maxHangTime / 2 * 1000, 2);
+      this.height = G * Math.pow(this.maxHangTime / 2 * 1000, 2);
       this.HideCountDown();
       this.UpdateScore(this.height);
       this.ShowScore();
@@ -137,8 +137,6 @@ class DataCapture {
                value: 'Motion: ' + this.joinArrayObs(motionData)
             }
          }));
-      this.maxHangTime = 0;
-      this.thisTime = 0;
    }
 
    activateCapture() {
@@ -148,6 +146,8 @@ class DataCapture {
       this.ShowOverlay();
       this.on = true;
       motionData = new Array();
+      this.maxHangTime = 0;
+      this.thisTime = 0;
       window.addEventListener('devicemotion', this.motion);
       this.StartCountdown();
       setTimeout(this.deactivateCapture.bind(this), 2000);
