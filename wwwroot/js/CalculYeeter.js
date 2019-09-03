@@ -13,7 +13,12 @@ class OrientationInstance {
 class MotionInstance {
     constructor(accelX, accelY, accelZ, interval) {//, gravX, gravY, gravZ, pos) {
         this.a = Math.sqrt(Math.pow(Math.abs(accelX), 2) + Math.pow(Math.abs(accelY), 2) + Math.pow(Math.abs(accelZ), 2));
-        this.time = interval;
+        if (interval < 1) {
+            this.time = interval;
+        } else {
+            this.time = interval / 1000;
+        }
+
 
 
 
