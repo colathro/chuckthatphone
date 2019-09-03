@@ -94,20 +94,20 @@ class DataCapture {
 
    motion(event) {
       var x = new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z);
-      if (!falling) {
+      if (!this.falling) {
          if (x.a >= 9 && x.a <= 10) {
-            falling = true;
-            thisTime = x.time;
+            this.falling = true;
+            this.thisTime = x.time;
          }
       } else {
          if (x.a < 9 || x.a > 10) {
-            falling = false;
-            if (x.time - thisTime > maxHangTime) {
-               maxHangTime = x.time - thisTime;
+            this.falling = false;
+            if (x.time - this.thisTime > this.maxHangTime) {
+               this.maxHangTime = x.time - this.thisTime;
             }
          }
       }
-      motionData.push(x);
+      this.motionData.push(x);
 
    }
 
