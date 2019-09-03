@@ -137,7 +137,6 @@ class DataCapture {
       this.HideDataEntry();
       this.ShowCountDown();
       this.ShowOverlay();
-      this.on = true;
       this.motionData = new Array();
       this.maxHangTime = 0;
       this.thisTime = 0;
