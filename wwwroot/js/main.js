@@ -6,7 +6,6 @@ var on = false;
 var G = 16.087; //1/2 32.174 ft/s2
 var thisTime = 0;
 var maxHangTime = 0;
-var falling = false;
 
 class DataCapture {
    constructor() {
@@ -81,7 +80,7 @@ class DataCapture {
    }
 
    UpdateScore(score) {
-      document.getElementById("ScoreNumber").innerText = score + 'Feet';
+      document.getElementById("ScoreNumber").innerText = score + ' Feet';
    }
 
    ShowDataEntry() {
@@ -94,19 +93,13 @@ class DataCapture {
 
    motion(event) {
       var x = new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.interval);
-      if (!this.falling) {
-         if (x.a >= 9 && x.a <= 11) {
-            this.falling = true;
-            this.thisTime += x.interval;
-         }
+      if (x.a >= 9 && x.a <= 11) {
+         this.thisTime += x.time;
       } else {
-         if (x.a < 9 || x.a > 11) {
-            this.falling = false;
-            if (this.thisTime > this.maxHangTime) {
-               this.maxHangTime = this.thisTime;
-               this.thisTime = 0;
-            }
+         if (this.thisTime > this.maxHangTime) {
+            this.maxHangTime = this.thisTime;
          }
+         this.thisTime = 0;
       }
       this.motionData.push(x);
 
@@ -147,7 +140,6 @@ class DataCapture {
       this.motionData = new Array();
       this.maxHangTime = 0;
       this.thisTime = 0;
-      this.falling = false;
       window.addEventListener('devicemotion', this.motion);
       this.StartCountdown();
       setTimeout(this.deactivateCapture.bind(this), 2000);
