@@ -107,7 +107,7 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      this.height = G * Math.pow(this.maxHangTime / 2 * 1000, 2);
+      this.height = G * Math.pow(this.maxHangTime / 2, 2);
       this.HideCountDown();
       this.UpdateScore(this.height);
       this.ShowScore();
