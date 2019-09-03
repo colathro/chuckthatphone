@@ -95,6 +95,7 @@ class DataCapture {
       var x = new MotionInstance(event.acceleration.x, event.acceleration.y, event.acceleration.z, event.interval);
       if (x.a >= 9 && x.a <= 11) {
          this.thisTime += x.time;
+         x.time = this.thisTime;
       } else {
          if (this.thisTime > this.maxHangTime) {
             this.maxHangTime = this.thisTime;
