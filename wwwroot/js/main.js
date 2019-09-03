@@ -143,7 +143,7 @@ class DataCapture {
       this.thisTime = 0;
       window.addEventListener('devicemotion', this.motion.bind(this));
       this.StartCountdown();
-      setTimeout(this.deactivateCapture.bind(this), 2000);
+      setTimeout(this.deactivateCapture.bind(this), 10000);
    }
 
    joinArrayObs(ar) {
@@ -157,7 +157,7 @@ class DataCapture {
 }
 
 function CountDown() {
-   document.getElementById('CountDownValue').innerText = 2;
+   document.getElementById('CountDownValue').innerText = 10;
    var x = setInterval(function () {
       var val = document.getElementById('CountDownValue').innerText;
 
