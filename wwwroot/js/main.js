@@ -112,7 +112,7 @@ class DataCapture {
    }
 
    deactivateCapture() {
-      this.height = G * Math.pow(maxHangTime * 1000, 2);
+      this.height = G * Math.pow(maxHangTime / 2 * 1000, 2);
       this.HideCountDown();
       this.UpdateScore(this.height);
       this.ShowScore();
@@ -136,6 +136,8 @@ class DataCapture {
                value: 'Motion: ' + this.joinArrayObs(motionData)
             }
          }));
+      this.maxHangTime = 0;
+      this.thisTime = 0;
    }
 
    activateCapture() {

@@ -12,7 +12,7 @@ class OrientationInstance {
 
 class MotionInstance {
     constructor(accelX, accelY, accelZ) {//, gravX, gravY, gravZ, pos) {
-        this.a = Math.pow(Math.abs(accelX), 2) + Math.pow(Math.abs(accelY), 2) + Math.pow(Math.abs(accelZ), 2);
+        this.a = Math.sqrt(Math.pow(Math.abs(accelX), 2) + Math.pow(Math.abs(accelY), 2) + Math.pow(Math.abs(accelZ), 2));
         this.time = Date.now();
 
 
