@@ -111,7 +111,7 @@ class DataCapture {
       this.HideCountDown();
       this.UpdateScore(this.height);
       this.ShowScore();
-      window.removeEventListener('devicemotion', this.motion);
+      window.removeEventListener('devicemotion', this.motion.bind(this));
    }
 
    sendYeet() {
@@ -141,7 +141,7 @@ class DataCapture {
       this.motionData = new Array();
       this.maxHangTime = 0;
       this.thisTime = 0;
-      window.addEventListener('devicemotion', this.motion);
+      window.addEventListener('devicemotion', this.motion.bind(this));
       this.StartCountdown();
       setTimeout(this.deactivateCapture.bind(this), 2000);
    }
