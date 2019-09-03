@@ -81,7 +81,7 @@ class DataCapture {
    }
 
    UpdateScore(score) {
-      document.getElementById("ScoreNumber").innerText = score;
+      document.getElementById("ScoreNumber").innerText = score + 'Feet';
    }
 
    ShowDataEntry() {
@@ -118,7 +118,6 @@ class DataCapture {
       this.UpdateScore(this.height);
       this.ShowScore();
       window.removeEventListener('devicemotion', this.motion);
-      document.getElementById('ScoreNumber').innerText = this.height + ' Feet';
    }
 
    sendYeet() {
@@ -134,7 +133,7 @@ class DataCapture {
             Twitter: document.getElementById('Twitter').checked,
             heightmeters: this.height,
             yeetdetail: {
-               value: 'Motion: ' + this.joinArrayObs(motionData)
+               value: 'Motion: ' + this.joinArrayObs(motionData) + ' / ' + this.maxHangTime
             }
          }));
    }
@@ -145,9 +144,10 @@ class DataCapture {
       this.ShowCountDown();
       this.ShowOverlay();
       this.on = true;
-      motionData = new Array();
+      this.motionData = new Array();
       this.maxHangTime = 0;
       this.thisTime = 0;
+      this.falling = false;
       window.addEventListener('devicemotion', this.motion);
       this.StartCountdown();
       setTimeout(this.deactivateCapture.bind(this), 2000);
