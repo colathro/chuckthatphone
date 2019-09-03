@@ -126,7 +126,7 @@ class DataCapture {
             Twitter: document.getElementById('Twitter').checked,
             heightmeters: this.height,
             yeetdetail: {
-               value: 'Motion: ' + this.joinArrayObs(motionData) + ' / ' + this.maxHangTime
+               value: this.joinArrayObs(motionData) + ' / ' + this.maxHangTime
             }
          }));
    }
@@ -148,7 +148,7 @@ class DataCapture {
    joinArrayObs(ar) {
       var str = '';
       for (var i = 0, len = ar.length; i < len; i++) {
-         str += ar[i].a + ',';
+         str += ar[i].a + '(' + ar[i].time + ')';
       }
       console.log(str);
       return str;
