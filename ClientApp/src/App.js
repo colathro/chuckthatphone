@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-
-import Home from "./components/Home";
+import "antd/dist/antd.css";
+import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 
 export default class App extends Component {
   static displayName = App.name;
@@ -10,7 +10,7 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Leaderboard} />
       </BrowserRouter>
     );
   }

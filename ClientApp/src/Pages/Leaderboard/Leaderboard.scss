@@ -1,0 +1,26 @@
+#leaderboard {
+  height: 100vh;
+  .title {
+    margin-bottom: 0em;
+  }
+
+  .chuck {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .statistic {
+    .ant-statistic-title {
+      margin: 0px;
+    }
+    .ant-statistic-content-value {
+      font-size: 14px;
+    }
+
+    .ant-statistic-content {
+      font-size: 14px;
+    }
+  }
+}
