@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 import ApexCharts from "apexcharts";
+import { accelerometer } from "react-native-sensors";
 
 var data = [];
 var iteration = 0;
@@ -57,7 +58,7 @@ export default class ChuckModal extends Component {
           curve: "smooth",
         },
         title: {
-          text: "Dynamic Updating Chart",
+          text: "Phone Velocity",
           align: "left",
         },
         markers: {
@@ -75,17 +76,15 @@ export default class ChuckModal extends Component {
     };
   }
 
-  componentDidMount() {
-    window.setInterval(() => {
-      getNewSeries();
+  subscription = accelerometer.subscribe(({ x, y, z, timestamp }) => {
+    getNewSeries();
 
-      ApexCharts.exec("realtime", "updateSeries", [
-        {
-          data: data,
-        },
-      ]);
-    }, 200);
-  }
+    ApexCharts.exec("realtime", "updateSeries", [
+      {
+        data: (x + y + z) / 3,
+      },
+    ]);
+  });
 
   render() {
     return (
