@@ -12,7 +12,7 @@ function getNewSeries() {
   }
   data.push({
     x: iteration,
-    y: Math.floor(Math.random() * 100),
+    y: Math.floor(Math.random() * 10),
   });
 }
 
@@ -49,6 +49,7 @@ export default class ChuckModal extends Component {
             enabled: false,
           },
         },
+        colors: ["#ff4d4f"],
         dataLabels: {
           enabled: false,
         },
@@ -83,7 +84,7 @@ export default class ChuckModal extends Component {
           data: data,
         },
       ]);
-    }, 100);
+    }, 200);
   }
 
   render() {
