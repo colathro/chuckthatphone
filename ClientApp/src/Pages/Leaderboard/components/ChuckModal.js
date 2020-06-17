@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 import ApexCharts from "apexcharts";
-import { accelerometer } from "react-native-sensors";
 
-var data = [];
+var data = [{ x: 1, y: 1 }];
 var iteration = 0;
 
-function getNewSeries() {
+window.addEventListener(
+  "devicemotion",
+  (deviceMotionEvent) => {
+    var acceleration = deviceMotionEvent.accelerationIncludingGravity;
+    getNewSeries(acceleration.x, acceleration.y, acceleration.z);
+
+    ApexCharts.exec("realtime", "updateSeries", [
+      {
+        data: data,
+      },
+    ]);
+  },
+  true
+);
+
+function getNewSeries(x, y, z) {
   iteration += 1;
   if (iteration > 10) {
     data = data.slice(1, data.length);
   }
   data.push({
     x: iteration,
-    y: Math.floor(Math.random() * 10),
+    y: (x + y + z) / 3,
   });
-}
-
-function resetData() {
-  // Alternatively, you can also reset the data at certain intervals to prevent creating a huge series
-  data = data.slice(data.length - 50, data.length);
 }
 
 export default class ChuckModal extends Component {
@@ -75,16 +84,6 @@ export default class ChuckModal extends Component {
       },
     };
   }
-
-  subscription = accelerometer.subscribe(({ x, y, z, timestamp }) => {
-    getNewSeries();
-
-    ApexCharts.exec("realtime", "updateSeries", [
-      {
-        data: (x + y + z) / 3,
-      },
-    ]);
-  });
 
   render() {
     return (
